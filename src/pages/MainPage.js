@@ -1,4 +1,5 @@
-import { Header } from '../components/Header/header';
+// import { Header } from '../components/Header/header';
+// import Navigationbar from 'react-bootstrap/Navbar'
 import { Hero } from '../components/Hero/hero';
 import { Footer } from '../components/Footer/footer';
 import { Navigation } from '../components/Navigation/navigation';
@@ -10,8 +11,8 @@ import { Info } from '../components/Info/info';
 export const MainPage = () => {
   return (
     <div>
-      <Navigation></Navigation>
-      <Header></Header>
+      <Navigation/>
+      {/* <Header></Header> */}
       <Hero></Hero>
       <About></About>
       <Benefits></Benefits>
