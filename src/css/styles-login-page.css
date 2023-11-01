@@ -83,12 +83,10 @@ img { max-width: 100%; }
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 
 
-/***** Top content *****/
 
 .inner-bg {
     height:100%;
     padding: 120px 0 20px 0;
-    /* background: url(../images/1.jpg) no-repeat right top; */
 }
 
 .top-content .text {
@@ -198,7 +196,6 @@ footer a {
 footer a:hover, footer a:focus { color: #fff; border-bottom: 1px dotted #fff; }
 
 
-/***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 

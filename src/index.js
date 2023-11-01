@@ -7,7 +7,7 @@ import './normalize.css';
 import './css/animate.css'
 // import './css/boostnav.css'
 // import './css/boostrap0.css'
-import './css/plugins.css'
+// import './css/plugins.css'
 import './css/responsive.css'
 import './css/slick-theme.css'
 import './css/slick.css'

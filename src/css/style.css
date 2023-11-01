@@ -1471,7 +1471,6 @@ article .comments{
     float: right;
 }
 
-/* Main-bolg-post section */
 .main-blog-post article {
   border-bottom: 1px solid #eeeeee;
 }
@@ -1492,7 +1491,6 @@ article .comments{
   text-align: center;
 }
 
-/*Sidebar*/
 .sidebar h4 {
   font-size: 20px;
 }
