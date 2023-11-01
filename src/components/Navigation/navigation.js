@@ -1,8 +1,8 @@
 // import React from 'react';
 // import {useState} from 'react'
-import Container from 'react-bootstrap/Container';
+// import Container from 'react-bootstrap/Container';
 // import { Nav, Navbar, NavLink } from "react-bootstrap";
-import {FiMenu} from 'react-icons/fi'
+// import {FiMenu} from 'react-icons/fi'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './navigation.css';
@@ -10,9 +10,9 @@ import logo from '../../assets/logo.png'
 import { navLinks } from '../../utils/nav-link';
 
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import "./navigation.css";
-import { CodeIcon, HamburgetMenuClose, HamburgetMenuOpen } from "./icons";
+import { HamburgetMenuClose, HamburgetMenuOpen } from "./icons";
 
 export const Navigation = () => {
   const [click, setClick] = useState(false);

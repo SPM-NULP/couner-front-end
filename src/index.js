@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './normalize.css';
 // import './css/boostrap.css'
-import './css/main.css'
+// import './css/main.css'
 import './css/animate.css'
 // import './css/boostnav.css'
 // import './css/boostrap0.css'
