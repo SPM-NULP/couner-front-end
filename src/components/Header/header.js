@@ -33,6 +33,7 @@ import logo from '../../assets/logo.png'
 import '@mantine/core/styles.css';
 
 import { NavLink } from 'react-router-dom';
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const mockdata = [
   {
@@ -164,7 +165,7 @@ export function Header() {
             </NavLink>
           </Group>
 
-          <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
+          <Burger className='icon' opened={drawerOpened} color='#fff' onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
       </header>
 
