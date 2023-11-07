@@ -19,6 +19,10 @@ const defaultTheme = createTheme();
 
 export function SignInSide() {
   const location = useLocation()
+  const is_login = () =>{
+    // eslint-disable-next-line
+    return location.pathname == '/login'
+  } 
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -56,9 +60,9 @@ export function SignInSide() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-            {location.pathname == '/login' ? "Sign in" : "Sign up"}
+            {is_login ? "Sign in" : "Sign up"}
             </Typography>
-            {location.pathname == '/login' ? <LoginForm/> : <SignUpForm/> }
+            {is_login ? <LoginForm/> : <SignUpForm/> }
           </Box>
         </Grid>
       </Grid>

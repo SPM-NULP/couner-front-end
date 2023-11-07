@@ -33,7 +33,6 @@ import logo from '../../assets/logo.png'
 import '@mantine/core/styles.css';
 
 import { NavLink } from 'react-router-dom';
-import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const mockdata = [
   {
@@ -106,7 +105,7 @@ export function Header() {
             </a>
             <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
               <HoverCard.Target>
-                <a href="#" className={classes.link}>
+                <a href="#home" className={classes.link}>
                   <Center inline>
                     <Box component="span" mr={5}>
                       Features
@@ -122,7 +121,7 @@ export function Header() {
               <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                 <Group justify="space-between" px="md">
                   <Text fw={500}>Features</Text>
-                  <Anchor href="#" fz="xs">
+                  <Anchor href="" fz="xs">
                     View all
                   </Anchor>
                 </Group>
@@ -181,7 +180,7 @@ export function Header() {
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
 
-          <a href="#" className={classes.link}>
+          <a href="#home" className={classes.link}>
             Home
           </a>
           <UnstyledButton className={classes.link} onClick={toggleLinks}>
@@ -196,10 +195,10 @@ export function Header() {
             </Center>
           </UnstyledButton>
           <Collapse in={linksOpened}>{links}</Collapse>
-          <a href="#" className={classes.link}>
+          <a href="#home" className={classes.link}>
             Learn
           </a>
-          <a href="#" className={classes.link}>
+          <a href="#home" className={classes.link}>
             Academy
           </a>
 
