@@ -23,10 +23,7 @@ export const Navigation = () => {
       <nav className="navbar">
         <div className="nav-container">
           <div href="" exact to="/" className="nav-logo">
-          <img src={logo} alt="logo" width="60px" height="60px" className='logo' href="#home"/>
-            {/* <span className="icon">
-              <CodeIcon />
-            </span> */}
+            <img src={logo} alt="logo" width="60px" height="60px" className='logo' href="#home"/>
           </div >
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -61,33 +58,3 @@ export const Navigation = () => {
     </>
   );
 }
-
-
-
-// export const Navigation = () => {
-//         return (
-           
-//           <Navbar collapseOnSelect expand="sm" bg="dark" >
-//                 <Container className='nav-c'>
-//                     <div className='div-1'>
-//                         <div className='logo' href="#home">
-//                             <img src={logo} alt="logo" width={60} height={60} className='logo' href="#home"/>
-//                         </div>
-//                         <Navbar.Toggle aria-controls="navbarScroll" data-bs-toggle="collapse" data-bs-target="#navbarScroll"  >
-//                             <div className="menu-icon" >
-//                                 <FiMenu/>
-//                             </div>
-//                         </Navbar.Toggle>
-//                         <Navbar.Collapse id="responsive-navbar-nav"  >
-//                             <Nav>
-//                                 {navLinks.map((item, _) => (
-//                                     <NavLink key={item.id} href={item.id}>{item.title}</NavLink>
-//                                 ))}
-//                             </Nav>
-//                         </Navbar.Collapse>
-//                     </div>
-                    
-//                 </Container>
-//             </Navbar>
-//     )
-// }
