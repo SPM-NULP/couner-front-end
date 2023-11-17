@@ -13,6 +13,7 @@ import { Footer } from '../components/Footer/footer';
 
 
 export const MainPage = () => {
+  
   return (
     <div>
       {/* <Navigation/> */}

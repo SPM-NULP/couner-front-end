@@ -1,10 +1,10 @@
-import {SignInSide} from '../components/Auth/login'
+import {SignUpSide} from '../components/Auth/signup'
 
 
 export const SignUpPage = () => {
     return (
       <div>
-        <SignInSide/>
+        <SignUpSide/>
       </div>
     );
   };

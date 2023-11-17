@@ -28,7 +28,10 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import classes from './header.module.css';
-import logo from '../../assets/logo.png'
+import {Logo} from '../logo'
+
+import {useSelector} from 'react-redux'
+import {selectToken} from '../../redux/auth/auth-selectors'
 
 import '@mantine/core/styles.css';
 
@@ -67,7 +70,8 @@ const mockdata = [
   },
 ];
 
-export function Header() {
+export const Header = () => {
+  const isLogined = useSelector(selectToken)
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
@@ -92,11 +96,11 @@ export function Header() {
   ));
 
   return (
-    <Box pb={120} >
+    <Box pb={120}  >
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <a href="#home" exact className="nav-logo">
-            <img src={logo} alt="logo" width="80px" height="60px" className='logo' href="#home"/>
+            <Logo/>
           </a >
 
           <Group h="100%" gap={0} visibleFrom="sm">
@@ -155,7 +159,12 @@ export function Header() {
             </a>
           </Group>
 
-          <Group visibleFrom="sm">
+          {isLogined ? <Group>
+            <NavLink to='/overview'>
+              <Button variant='default'>Персональний кабінет</Button>
+            </NavLink>
+          </Group>
+            : <Group visibleFrom="sm">
             <NavLink to='/login'>
               <Button variant="default">Login</Button>
             </NavLink>
@@ -163,6 +172,7 @@ export function Header() {
               <Button>Sign up</Button>
             </NavLink>
           </Group>
+          }
 
           <Burger className='icon' opened={drawerOpened} color='#fff' onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
