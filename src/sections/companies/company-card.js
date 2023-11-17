@@ -28,6 +28,7 @@ export const CompanyCard = (props) => {
             src={company.logo} 
             height='150px'
             width='126px'
+            alt='device'
           />
         </Box>
         <Box 
