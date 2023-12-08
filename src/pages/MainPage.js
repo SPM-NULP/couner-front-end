@@ -1,31 +1,23 @@
 import { Header } from '../components/Header/header';
-// import Navigationbar from 'react-bootstrap/Navbar'
 import { Hero } from '../components/Hero/hero';
-// import {AccountBox} from '../components/Auth/index'
 import { Footer } from '../components/Footer/footer';
-// import {ModalAuth} from '../components/Auth/auth-modal'
-// import { Navigation } from '../components/Navigation/navigation';
-// import { About } from '../components/About/about';
-// import { Benefits } from '../components/Benefits/benefits';
-// import { Controller } from '../components/Controller/controller';
-// import { Info } from '../components/Info/info';
-// import {SignInSide} from '../components/Auth/login'
+import {Features} from '../components/Features/features'
+import { AboutUs } from "../components/AboutUs/aboutUs";
 
+import styles from "../components/style";
 
 export const MainPage = () => {
   
   return (
     <div>
-      {/* <Navigation/> */}
-      {/* <SignInSide/> */}
-      {/* <ModalAuth></ModalAuth> */}
       <Header></Header>
-      {/* <AccountBox/> */}
-      <Hero></Hero>
-      {/* <About></About> */}
-      {/* <Benefits></Benefits> */}
-      {/* <Controller></Controller> */}
-      {/* <Info></Info> */}
+      <div className={`bg-primary ${styles.flexStart}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Hero />
+        </div>
+      </div>
+      <Features></Features>
+      <AboutUs></AboutUs>
       <Footer></Footer>
     </div>
   );

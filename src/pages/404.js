@@ -5,11 +5,11 @@ import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
 
 const Page = () => (
   <>
-    <Head>
+    {/* <Head>
       <title>
         404 | SPM
       </title>
-    </Head>
+    </Head> */}
     <Box
       component="main"
       sx={{

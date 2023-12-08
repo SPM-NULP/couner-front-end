@@ -15,4 +15,8 @@ export const navLinks = [
       id: "#pricing",
       title: "Ціни",
     },
+    {
+      id: "#aboutus",
+      title: "Про нас",
+    },
   ];

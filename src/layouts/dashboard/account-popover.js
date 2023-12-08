@@ -1,11 +1,22 @@
 // import { useCallback } from 'react';
 // import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
-import { Box, Divider, MenuItem, MenuList, Popover, Typography } from '@mui/material';
+import { Box, Divider, MenuList, Popover, Typography, Button } from '@mui/material';
 // import { useAuth } from '../../../src/hooks/use-auth';
-
+// import {useState} from ''
+// import {selectIsLoggedIn} from '../../redux/auth/auth-selectors'
+import {NavLink} from 'react-router-dom'
+// import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import {  logoutUser } from '../../redux/auth/auth-operations';
 export const AccountPopover = (props) => {
+  const dispatch = useDispatch()
+
   const { onClose, open } = props;
+
+  const handleClick = () => {
+    dispatch(logoutUser())
+  }
   // const roufter = useRouter();
   // const auth = useAuth();
 
@@ -55,10 +66,12 @@ export const AccountPopover = (props) => {
             borderRadius: 1
           }
         }}
-      >
-        <MenuItem>
+      ><NavLink to='/login'>
+        <Button onClick={handleClick}>
           Вийти
-        </MenuItem>
+        </Button>
+      </NavLink>
+        
       </MenuList>
     </Popover>
   );

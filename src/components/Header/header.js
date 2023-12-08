@@ -1,12 +1,9 @@
 import {
-  HoverCard,
   Group,
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
   Divider,
   Center,
   Box,
@@ -28,13 +25,9 @@ import {
   IconChevronDown,
 } from '@tabler/icons-react';
 import classes from './header.module.css';
-import {Logo} from '../logo'
-
 import {useSelector} from 'react-redux'
 import {selectToken} from '../../redux/auth/auth-selectors'
-
 import '@mantine/core/styles.css';
-
 import { NavLink } from 'react-router-dom';
 
 const mockdata = [
@@ -96,66 +89,26 @@ export const Header = () => {
   ));
 
   return (
-    <Box pb={120}  >
+    <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <a href="#home" exact className="nav-logo">
-            <Logo/>
-          </a >
+          <a href="#home" exact >
+          <img src='assets/logox.png' alt="logo" height="60px" width="80px"/>
 
+            {/* <Logo width='60px' height='60px' /> */}
+          </a >
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#home" className={classes.link}>
               Головна
             </a>
-            <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
-              <HoverCard.Target>
-                <a href="#home" className={classes.link}>
-                  <Center inline>
-                    <Box component="span" mr={5}>
-                      Features
-                    </Box>
-                    <IconChevronDown
-                      style={{ width: rem(16), height: rem(16) }}
-                      color={theme.colors.blue[6]}
-                    />
-                  </Center>
-                </a>
-              </HoverCard.Target>
-
-              <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
-                <Group justify="space-between" px="md">
-                  <Text fw={500}>Features</Text>
-                  <Anchor href="" fz="xs">
-                    View all
-                  </Anchor>
-                </Group>
-
-                <Divider my="sm" />
-
-                <SimpleGrid cols={2} spacing={0}>
-                  {links}
-                </SimpleGrid>
-
-                <div className={classes.dropdownFooter}>
-                  <Group justify="space-between">
-                    <div>
-                      <Text fw={500} fz="sm">
-                        Get started
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        Their food sources have decreased, and their numbers
-                      </Text>
-                    </div>
-                    <Button variant="default">Get started</Button>
-                  </Group>
-                </div>
-              </HoverCard.Dropdown>
-            </HoverCard>
             <a href="#controller" className={classes.link}>
             Про пристрій
             </a>
             <a href="#pricing" className={classes.link}>
               Ціни
+            </a>
+            <a href="#aboutus" className={classes.link}>
+              Про нас
             </a>
           </Group>
 

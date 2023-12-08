@@ -1,16 +1,9 @@
-// import Head from 'next/head';
 import { Box, Container, Stack, Typography } from '@mui/material';
 import { SettingsNotifications } from '../../sections/settings/settings-notifications';
 import { SettingsPassword } from '../../sections/settings/settings-password';
-// import { Layout as DashboardLayout } from '../../src/layouts/dashboard/layout';
 
 export const Settings = () => (
   <>
-    {/* <Head>
-      <title>
-        Settings
-      </title>
-    </Head> */}
     <Box
       component="main"
       sx={{
@@ -30,11 +23,3 @@ export const Settings = () => (
     </Box>
   </>
 );
-
-// Page.getLayout = (page) => (
-//   <DashboardLayout>
-//     {page}
-//   </DashboardLayout>
-// );
-
-// export default Page;

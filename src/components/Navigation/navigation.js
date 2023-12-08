@@ -1,16 +1,7 @@
-// import React from 'react';
-// import {useState} from 'react'
-// import Container from 'react-bootstrap/Container';
-// import { Nav, Navbar, NavLink } from "react-bootstrap";
-// import {FiMenu} from 'react-icons/fi'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './navigation.css';
-import logo from '../../assets/logo.png'
 import { navLinks } from '../../utils/nav-link';
-
 import React, { useState } from "react";
-// import { NavLink } from "react-router-dom";
 import "./navigation.css";
 import { HamburgetMenuClose, HamburgetMenuOpen } from "./icons";
 
@@ -23,7 +14,7 @@ export const Navigation = () => {
       <nav className="navbar">
         <div className="nav-container">
           <div href="" exact to="/" className="nav-logo">
-            <img src={logo} alt="logo" width="60px" height="60px" className='logo' href="#home"/>
+            <img src='../../public/assets/logo.png' alt="logo" width="60px" height="60px" className='logo' href="#home"/>
           </div >
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
