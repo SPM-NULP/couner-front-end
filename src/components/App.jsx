@@ -15,7 +15,7 @@ import { Routes, Route } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {selectToken} from '../redux/auth/auth-selectors'
-import {getCurrentUser} from '../redux/auth/auth-operations'
+// import {getCurrentUser} from '../redux/auth/auth-operations'
 
 import './index.css'
 
