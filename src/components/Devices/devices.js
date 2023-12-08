@@ -1,20 +1,19 @@
-// import Head from 'next/head';
-// import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
-// import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
 import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 import {
   Box,
   Button,
   Container,
-  // Pagination,
   Stack,
   SvgIcon,
   Typography,
   Unstable_Grid2 as Grid
 } from '@mui/material';
-// import { Layout as DashboardLayout } from '../layouts/dashboard/layout';
 import { CompanyCard } from '../../sections/companies/company-card';
-// import { CompaniesSearch } from '../sections/companies/companies-search';
+import {Error} from '../ErrorPage/error'
+
+import {useEffect} from 'react'
+import {useDispatch} from 'react-redux'
+import { getAll } from '../../redux/device-controller/device-operations'
 
 const companies = [
   {
@@ -27,13 +26,15 @@ const companies = [
   }
 ];
 
-export const Devices = () => (
-  <>
-    {/* <Head>
-      <title>
-        Мої пристрої
-      </title>
-    </Head> */}
+// const companies = null
+
+export const Devices = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getAll());
+  }, [dispatch]);
+  return (
+    <>
     <Box
       component="main"
       sx={{
@@ -41,6 +42,7 @@ export const Devices = () => (
         py: 8
       }}
     >
+    { companies.length === 0 ? <Error></Error> :
       <Container maxWidth="xl">
         <Stack spacing={3}>
           <Stack
@@ -52,32 +54,6 @@ export const Devices = () => (
               <Typography variant="h4">
                 Пристрої
               </Typography>
-              {/* <Stack
-                alignItems="center"
-                direction="row"
-                spacing={1}
-              > */}
-                {/* <Button
-                  color="inherit"
-                  startIcon={(
-                    <SvgIcon fontSize="small">
-                      <ArrowUpOnSquareIcon />
-                    </SvgIcon>
-                  )}
-                >
-                  Import
-                </Button>
-                <Button
-                  color="inherit"
-                  startIcon={(
-                    <SvgIcon fontSize="small">
-                      <ArrowDownOnSquareIcon />
-                    </SvgIcon>
-                  )}
-                >
-                  Export
-                </Button> */}
-              {/* </Stack> */}
             </Stack>
             <div>
               <Button
@@ -92,7 +68,6 @@ export const Devices = () => (
               </Button>
             </div>
           </Stack>
-          {/* <CompaniesSearch /> */}
           <Grid
             container
             spacing={3}
@@ -108,27 +83,9 @@ export const Devices = () => (
               </Grid>
             ))}
           </Grid>
-          {/* <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <Pagination
-              count={3}
-              size="small"
-            /> 
-          </Box> */}
         </Stack>
-      </Container>
+      </Container>}
     </Box>
   </>
-);
-
-// Page.getLayout = (page) => (
-//   <DashboardLayout>
-//     {page}
-//   </DashboardLayout>
-// );
-
-// export default Page;
+  )
+};

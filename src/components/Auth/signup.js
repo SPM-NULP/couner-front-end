@@ -58,9 +58,7 @@ export function SignUpSide() {
       try {
         dispatch(registrationUser(values))
       } catch (error) {
-        
       }
-      
     }
   });
 
@@ -151,7 +149,6 @@ export function SignUpSide() {
                 &nbsp;
                 <NavLink to='/login'>
                     <Link
-                //   component={NextLink}
                     href="/auth/login"
                     underline="hover"
                     variant="subtitle2"
@@ -163,7 +160,6 @@ export function SignUpSide() {
               </Typography>
             </Stack>
             <form
-
               onSubmit={formik.handleSubmit}
             >
               <Stack spacing={3}>

@@ -17,18 +17,20 @@ import {useEffect} from 'react'
 import {selectToken} from '../redux/auth/auth-selectors'
 import {getCurrentUser} from '../redux/auth/auth-operations'
 
+import './index.css'
+
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   useEffect(() => {
-    token && dispatch(getCurrentUser());
+    // token && dispatch(getCurrentUser());
   }, [dispatch, token]);
   return (
       <MantineProvider>
         <Routes>
+          <Route path='/' element={<MainPage />}/>
           <Route path='/login' element={<PublicRoute component={<LoginPage />} />} />
           <Route path='/signup' element={<PublicRoute component={<SignUpPage />} />} />
-          <Route path='/' element={<PrivateRoute component={<MainPage />} />}/>
           <Route path='/overview' element={<PrivateRoute component={<OverviewPage />} />}/>
           <Route path='/devices' element={<PrivateRoute component={<DevicesPage />} />}/>
           <Route path='/account' element={<PrivateRoute component={<AccountPage />} />}/>

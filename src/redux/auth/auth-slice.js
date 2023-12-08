@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   registrationUser,
   loginUser,
-//   logoutUser,
+  logoutUser,
 //   refreshUser,
 //   updateUser,
 } from './auth-operations';
@@ -43,16 +43,16 @@ export const userSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.error = action.payload.message;
       })
-    //   .addCase(logoutUser.pending, state => state)
-    //   .addCase(logoutUser.fulfilled, state => {
-    //     state.user = { name: null, email: null, avatar: null };
-    //     state.token = null;
-    //     state.isLoggedIn = false;
-    //     state.error = null;
-    //   })
-    //   .addCase(logoutUser.rejected, (state, action) => {
-    //     state.error = action.payload.message;
-    //   })
+      .addCase(logoutUser.pending, state => state)
+      .addCase(logoutUser.fulfilled, state => {
+        state.user = { name: null, email: null, avatar: null };
+        state.token = null;
+        state.isLoggedIn = false;
+        state.error = null;
+      })
+      .addCase(logoutUser.rejected, (state, action) => {
+        state.error = action.payload.message;
+      })
     //   .addCase(refreshUser.pending, state => {
     //     state.isRefreshing = true;
     //   })

@@ -11,9 +11,9 @@ const setAuthToken = token => {
 //   console.log(axios.defaults.headers.common.Authorization)
 };
 
-// const clearAuthToken = () => {
-//   axios.defaults.headers.common.Authorization = '';
-// };
+const clearAuthToken = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
 
 export const registrationUser = createAsyncThunk(
   'auth/register',
@@ -54,17 +54,17 @@ export const loginUser = createAsyncThunk(
   }
 );
 
-// export const logoutUser = createAsyncThunk(
-//   'auth/logout',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       await axios.post('/auth/logout');
-//       clearAuthToken();
-//     } catch (error) {
-//       return rejectWithValue;
-//     }
-//   }
-// );
+export const logoutUser = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.post('/auth/logout');
+      clearAuthToken();
+    } catch (error) {
+      return rejectWithValue;
+    }
+  }
+);
 
 // export const refreshUser = createAsyncThunk(
 //   'auth/refresh',
@@ -117,7 +117,7 @@ export const getCurrentUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       persistedToken && setAuthToken(persistedToken);
-      const res = await axios.get('/user');
+      const res = await axios.get('/user/');
       return res.data;
     } catch (error) {
       // check is token is expired - and then delete it from local storage
