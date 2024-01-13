@@ -37,15 +37,7 @@ export const items = [
       </SvgIcon>
     )
   },
-  // {
-  //   title: 'Customers',
-  //   path: '/customers',
-  //   icon: (
-  //     <SvgIcon fontSize="small">
-  //       <UsersIcon />
-  //     </SvgIcon>
-  //   )
-  // },
+
   {
     title: 'Мої пристрої',
     path: '/devices',
@@ -73,33 +65,6 @@ export const items = [
       </SvgIcon>
     )
   },
-  // {
-  //   title: 'Login',
-  //   path: '/auth/login',
-  //   icon: (
-  //     <SvgIcon fontSize="small">
-  //       <LockClosedIcon />
-  //     </SvgIcon>
-  //   )
-  // },
-  // {
-  //   title: 'Register',
-  //   path: '/auth/register',
-  //   icon: (
-  //     <SvgIcon fontSize="small">
-  //       <UserPlusIcon />
-  //     </SvgIcon>
-  //   )
-  // },
-  // {
-  //   title: 'Error',
-  //   path: '/404',
-  //   icon: (
-  //     <SvgIcon fontSize="small">
-  //       <XCircleIcon />
-  //     </SvgIcon>
-  //   )
-  // }
 ];
 
 
@@ -155,7 +120,6 @@ export const SideNav = (props) => {
                 Назва пристрою
               </Typography>
               <Typography
-                // color="neutral.400"
                 variant="body2"
               >
                 Production
@@ -163,7 +127,6 @@ export const SideNav = (props) => {
             </div>
             <SvgIcon
               fontSize="small"
-              // sx={{ color: 'neutral.500' }}
             >
               <ChevronDownIcon />
             </SvgIcon>
@@ -218,7 +181,6 @@ export const SideNav = (props) => {
           sx: {
             backgroundColor: 'neutral.800',
             width: 280,
-            /*To hide scrollbars*/
             height: "100%",
             overflowX: 'hidden',
             overflowY: 'hidden',
@@ -229,29 +191,7 @@ export const SideNav = (props) => {
         {content}
       </Drawer>
     );
-
-
-  // return (
-  //   <Drawer
-  //     anchor="left"
-      
-  //     onClose={onClose}
-  //     // open={true}
-  //     PaperProps={{
-  //       sx: {
-  //         // backgroundColor: 'neutral.800',
-  //         // color: 'common.white',
-  //         width: 280,
-  //         display: 'flex'
-  //       }
-  //     }}
-  //     sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
-  //     variant="temporary"
-  //   >
-  //     {content}
-  //   </Drawer>
-  // );
-};
+}
 
 SideNav.propTypes = {
   onClose: PropTypes.func,

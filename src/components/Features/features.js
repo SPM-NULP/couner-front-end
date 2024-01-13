@@ -51,7 +51,7 @@ export const Features = () => {
     ));
   
     return (
-      <Container size="lg" py="xl">  
+      <Container size="lg" py="xl" id='features'>  
         <Title order={2} className={classes.title} ta="center" mt="sm">
           Наші переваги
         </Title>

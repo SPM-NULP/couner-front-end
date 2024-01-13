@@ -139,13 +139,13 @@ export function SignUpSide() {
               sx={{ mb: 3 }}
             >
               <Typography variant="h4">
-                Register
+                Реєстрація
               </Typography>
               <Typography
                 color="text.secondary"
                 variant="body2"
               >
-                Already have an account?
+                Вже маєте акаунт?
                 &nbsp;
                 <NavLink to='/login'>
                     <Link
@@ -153,7 +153,7 @@ export function SignUpSide() {
                     underline="hover"
                     variant="subtitle2"
                 >
-                  Log in
+                  Увійти
                 </Link>
                 </NavLink>
                 
@@ -167,7 +167,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.firstname && formik.errors.firstname)}
                   fullWidth
                   helperText={formik.touched.firstname && formik.errors.firstname}
-                  label="First Name"
+                  label="Ім'я"
                   name="firstname"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -177,7 +177,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.lastname && formik.errors.lastname)}
                   fullWidth
                   helperText={formik.touched.lastname && formik.errors.lastname}
-                  label="Last Name"
+                  label="Прізвище"
                   name="lastname"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -187,7 +187,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.username && formik.errors.username)}
                   fullWidth
                   helperText={formik.touched.username && formik.errors.username}
-                  label="Username"
+                  label="Ім'я акаунту"
                   name="username"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -197,7 +197,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.email && formik.errors.email)}
                   fullWidth
                   helperText={formik.touched.email && formik.errors.email}
-                  label="Email Address"
+                  label="Електронна пошта"
                   name="email"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -208,7 +208,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.password && formik.errors.password)}
                   fullWidth
                   helperText={formik.touched.password && formik.errors.password}
-                  label="Password"
+                  label="Пароль"
                   name="password"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -219,7 +219,7 @@ export function SignUpSide() {
                   error={!!(formik.touched.confirmPassword && formik.errors.confirmPassword)}
                   fullWidth
                   helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-                  label="Comfirm Password"
+                  label="Підтвердження паролю"
                   name="confirmPassword"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
@@ -243,7 +243,7 @@ export function SignUpSide() {
                 type="submit"
                 variant="contained"
               >
-                Continue
+                Зареєструватись 
               </Button>
             </form>
           </div>

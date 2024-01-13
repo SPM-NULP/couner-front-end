@@ -2,7 +2,6 @@ import { Container, Group, ActionIcon, rem, Box, useMantineTheme } from '@mantin
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import classes from './footer.module.css';
 import '@mantine/core/styles.css';
-import {Logo} from '../logo'
 
 export function Footer() {
   const theme = useMantineTheme();
@@ -11,7 +10,9 @@ export function Footer() {
       <div className={classes.footer} color={theme.colors.dark[2]}>
         <Container className={classes.inner} color={theme.colors.dark[2]}>
           <Box>
-          <Logo width="50px" height="50px" />
+          <img src="https://lh3.googleusercontent.com/pw/ABLVV85bweoz0Zy0U9LZvkJqc2-oR2bnr2extYJR7PSMa0fHc9-r1X2ImkUII97NQN9qSOTjlV2n1a17fejjHa9E7jHDIoj_FNTy9Zb8q274u_zeYwVMUk0=w600-h315-p-k" alt="logo" height="60px" width="80px" />
+          {/* <img src='https://drive.google.com/uc?export=view&id=1nkbZzHQg6UoGFLRc6rjN-kpD9qQdOs-X' alt="logo" height="60px" width="80px"/> */}
+          {/* <Logo width="50px" height="50px" /> */}
           </Box>
           <Group color={theme.colors.dark[2]} gap={0} className={classes.links} justify="flex-end" wrap="nowrap">
             <ActionIcon size="lg" color="gray" variant="subtle">

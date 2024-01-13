@@ -117,20 +117,19 @@ export function SignInSide() {
               sx={{ mb: 3 }}
             >
               <Typography variant="h4">
-                Login
+                Логін
               </Typography>
               <Typography
                 color="text.secondary"
                 variant="body2"
               >
-                Don&apos;t have an account?
-                &nbsp;
+                Немає акаунту?&nbsp;
                 <NavLink to='/signup'>
                 <Link
                   underline="hover"
                   variant="subtitle2"
                 >
-                  Register
+                  Зареєструйтесь!
                 </Link>
                 </NavLink>
               </Typography>
@@ -143,7 +142,7 @@ export function SignInSide() {
                     error={!!(formik.touched.username && formik.errors.username)}
                     fullWidth
                     helperText={formik.touched.username && formik.errors.username}
-                    label="Email Address"
+                    label="Електронна пошта"
                     name="username"
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
@@ -154,7 +153,7 @@ export function SignInSide() {
                     error={!!(formik.touched.password && formik.errors.password)}
                     fullWidth
                     helperText={formik.touched.password && formik.errors.password}
-                    label="Password"
+                    label="Пароль"
                     name="password"
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
@@ -178,7 +177,7 @@ export function SignInSide() {
                   type="submit"
                   variant="contained"
                 >
-                  Continue
+                  Увійти
                 </Button>
               </form>
           </div>

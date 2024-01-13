@@ -1,12 +1,6 @@
-// import { useCallback } from 'react';
-// import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import { Box, Divider, MenuList, Popover, Typography, Button } from '@mui/material';
-// import { useAuth } from '../../../src/hooks/use-auth';
-// import {useState} from ''
-// import {selectIsLoggedIn} from '../../redux/auth/auth-selectors'
 import {NavLink} from 'react-router-dom'
-// import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {  logoutUser } from '../../redux/auth/auth-operations';
 export const AccountPopover = (props) => {
@@ -17,28 +11,16 @@ export const AccountPopover = (props) => {
   const handleClick = () => {
     dispatch(logoutUser())
   }
-  // const roufter = useRouter();
-  // const auth = useAuth();
-
-  // const handleSignOut = useCallback(
-  //   () => {
-  //     onClose?.();
-  //     auth.signOut();
-  //     // router.push('/auth/login');
-  //   },
-  //   [onClose, auth]
-  // );
 
   return (
     <Popover
-      // anchorEl={anchorEl}
+
       anchorOrigin={{
         horizontal: 'right',
         vertical: 'top'
       }}
       onClose={onClose}
       open={open}
-      // PaperProps={{ sx: { width: 200 } }}
     >
       <Box
         sx={{
@@ -53,7 +35,7 @@ export const AccountPopover = (props) => {
           color="text.secondary"
           variant="body2"
         >
-          Anika Visser
+          Іван Іваненко
         </Typography>
       </Box>
       <Divider />

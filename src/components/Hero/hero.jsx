@@ -1,15 +1,14 @@
 import { Container, Title, Button, Group, Text, List, ThemeIcon, rem } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
-// import image from './image.svg';
 import classes from './hero.module.css';
 
 export function Hero() {
   return (
-    <Container size="md" className={classes.heroC}>
+    <Container size="md" id='home' className={classes.heroC}>
       <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>
-            <span className={classes.highlight}>Набридло</span> подавати показники<br /> лічильника вручну?<br />
+            <span>Набридло</span> подавати показники<br /> лічильника вручну?<br />
             <span className={classes.titleSpan}>Ми зробимо це за тебе!</span> 
           </Title>
         {/*Забув про подачу показників лічильника? Ми зробимо це за тебе!*/}
@@ -40,7 +39,7 @@ export function Hero() {
 
           <Group mt={30}>
             <Button radius="xl" size="md" className={classes.control}>
-              Купити
+              Замовити пристрій
             </Button>
             {/* <Button variant="default" radius="xl" size="md" className={classes.control}>
               Source code

@@ -25,8 +25,8 @@ export const SettingsNotifications = () => {
     <form onSubmit={handleSubmit}>
       <Card>
         <CardHeader
-          subheader="Manage the notifications"
-          title="Notifications"
+          subheader="Керування повідомленнями"
+          title="Повідомлення"
         />
         <Divider />
         <CardContent>
@@ -42,29 +42,25 @@ export const SettingsNotifications = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h6">
-                  Notifications
+                  Повідомлення
                 </Typography>
                 <Stack>
                   <FormControlLabel
                     control={<Checkbox defaultChecked />}
-                    label="Email"
-                  />
-                  <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    label="Push Notifications"
+                    label="Повідомлення на пошту"
                   />
                   <FormControlLabel
                     control={<Checkbox />}
-                    label="Text Messages"
+                    label="Текстові повідомлення"
                   />
                   <FormControlLabel
                     control={<Checkbox defaultChecked />}
-                    label="Phone calls"
+                    label="Дзвінки"
                   />
                 </Stack>
               </Stack>
             </Grid>
-            <Grid
+            {/* <Grid
               item
               md={4}
               sm={6}
@@ -72,7 +68,7 @@ export const SettingsNotifications = () => {
             >
               <Stack spacing={1}>
                 <Typography variant="h6">
-                  Messages
+                  Повідомлення
                 </Typography>
                 <Stack>
                   <FormControlLabel
@@ -89,13 +85,13 @@ export const SettingsNotifications = () => {
                   />
                 </Stack>
               </Stack>
-            </Grid>
+            </Grid> */}
           </Grid>
         </CardContent>
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
           <Button variant="contained">
-            Save
+            Зберегти
           </Button>
         </CardActions>
       </Card>
