@@ -15,7 +15,7 @@ export const Account = () => (
         <Stack spacing={3}>
           <div>
             <Typography variant="h4">
-              Account
+              Профіль
             </Typography>
           </div>
           <div>

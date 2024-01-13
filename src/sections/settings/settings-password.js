@@ -67,7 +67,7 @@ export const SettingsPassword = () => {
         <Divider />
         <CardActions sx={{ justifyContent: 'flex-end' }}>
           <Button variant="contained">
-            Update
+            Змінити пароль
           </Button>
         </CardActions>
       </Card>

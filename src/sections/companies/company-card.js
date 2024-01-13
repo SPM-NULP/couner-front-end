@@ -98,7 +98,7 @@ export const CompanyCard = (props) => {
             display="inline"
             variant="body2"
           >
-            {company.downloads} Downloads
+            {company.downloads} Приблизний час роботи
           </Typography>
         </Stack>
       </Stack>

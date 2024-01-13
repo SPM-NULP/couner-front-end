@@ -1,6 +1,6 @@
 import { Box, Container, Stack, Typography } from '@mui/material';
 import { SettingsNotifications } from '../../sections/settings/settings-notifications';
-import { SettingsPassword } from '../../sections/settings/settings-password';
+// import { SettingsPassword } from '../../sections/settings/settings-password';
 
 export const Settings = () => (
   <>
@@ -17,7 +17,7 @@ export const Settings = () => (
             Налаштування
           </Typography>
           <SettingsNotifications />
-          <SettingsPassword />
+          {/* <SettingsPassword /> */}
         </Stack>
       </Container>
     </Box>

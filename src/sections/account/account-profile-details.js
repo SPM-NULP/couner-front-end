@@ -13,31 +13,31 @@ import {
 
 const states = [
   {
-    value: 'alabama',
-    label: 'Alabama'
+    value: 'львів',
+    label: 'Львів'
   },
   {
-    value: 'new-york',
-    label: 'New York'
+    value: 'київ',
+    label: 'Київ'
   },
   {
-    value: 'san-francisco',
-    label: 'San Francisco'
+    value: 'вінниця',
+    label: 'Вінниця'
   },
   {
-    value: 'los-angeles',
-    label: 'Los Angeles'
+    value: 'тернопіль',
+    label: 'Тернопіль'
   }
 ];
 
 export const AccountProfileDetails = () => {
   const [values, setValues] = useState({
-    firstName: 'Anika',
-    lastName: 'Visser',
-    email: 'demo@devias.io',
+    firstName: 'Іван',
+    lastName: 'Іваненко',
+    email: 'ivanenko.ivan@gmail.com',
     phone: '',
-    state: 'los-angeles',
-    country: 'USA'
+    state: 'Львів',
+    country: 'Україна'
   });
 
   const handleChange = useCallback(
@@ -107,7 +107,7 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  label="Email Адреса"
+                  label="Електронна Адреса"
                   name="email"
                   onChange={handleChange}
                   required

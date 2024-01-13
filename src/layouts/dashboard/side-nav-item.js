@@ -26,14 +26,12 @@ export const SideNavItem = (props) => {
             backgroundColor: 'rgba(255, 255, 255, 0.04)'
           }
         }}
-        // {...linkProps}
       >
         {icon && (
           <Box
             component="span"
             sx={{
               alignItems: 'center',
-              // color: 'neutral.400',
               display: 'inline-flex',
               justifyContent: 'center',
               mr: 2,
@@ -49,7 +47,6 @@ export const SideNavItem = (props) => {
         <Box
           component="span"
           sx={{
-            // color: 'neutral.400',
             flexGrow: 1,
             fontFamily: (theme) => theme.typography.fontFamily,
             fontSize: 14,
@@ -57,10 +54,8 @@ export const SideNavItem = (props) => {
             lineHeight: '24px',
             whiteSpace: 'nowrap',
             ...(active && {
-              // color: 'common.white'
             }),
             ...(disabled && {
-              // color: 'neutral.500'
             })
           }}
         >

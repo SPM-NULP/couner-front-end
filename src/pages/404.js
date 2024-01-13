@@ -1,15 +1,9 @@
-import Head from 'next/head';
 import NextLink from 'next/link';
 import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
 import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
 
 const Page = () => (
   <>
-    {/* <Head>
-      <title>
-        404 | SPM
-      </title>
-    </Head> */}
     <Box
       component="main"
       sx={{

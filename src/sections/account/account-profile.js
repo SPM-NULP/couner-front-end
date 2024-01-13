@@ -11,11 +11,11 @@ import {
 
 const user = {
   avatar: '/assets/avatars/avatar-anika-visser.png',
-  city: 'Los Angeles',
-  country: 'USA',
+  city: 'Львів',
+  country: 'Україна',
   jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
-  timezone: 'GTM-7'
+  name: 'Іван Іваненко',
+  timezone: 'GTM-2'
 };
 
 export const AccountProfile = () => (
@@ -46,7 +46,7 @@ export const AccountProfile = () => (
           color="text.secondary"
           variant="body2"
         >
-          {user.city} {user.country}
+          {user.city}, {user.country}
         </Typography>
         <Typography
           color="text.secondary"

@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import BellIcon from '@heroicons/react/24/solid/BellIcon';
 import UsersIcon from '@heroicons/react/24/solid/UsersIcon';
 import Bars3Icon from '@heroicons/react/24/solid/Bars3Icon';
@@ -11,21 +10,16 @@ import {
   Stack,
   SvgIcon,
   Tooltip,
-  // useMediaQuery
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
-// import { usePopover } from '../../../src/hooks/use-popover';
 import {useState, useCallback} from 'react'
 import { AccountPopover } from './account-popover';
 
-// const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
 export const TopNav = (props) => {
   const { onNavOpen } = props;
   const [open, setOpen] = useState(false);
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-  // const accountPopover = usePopover();
 
   const handleOpen = () => {
     setOpen(true)
@@ -43,13 +37,7 @@ export const TopNav = (props) => {
           backdropFilter: 'blur(6px)',
           backgroundColor: (theme) => alpha(theme.palette.background.default, 0.8),
           position: 'sticky',
-          // left: {
-          //   lg: `${SIDE_NAV_WIDTH}px`
-          // },
           top: 0,
-          // width: {
-          //   lg: `calc(100% - ${SIDE_NAV_WIDTH}px)`
-          // },
           zIndex: (theme) => theme.zIndex.appBar
         }}
       >
@@ -110,7 +98,6 @@ export const TopNav = (props) => {
             </Tooltip>
             <Avatar
               onClick={handleOpen}
-              // ref={accountPopover.anchorRef}
               sx={{
                 cursor: 'pointer',
                 height: 40,
@@ -122,14 +109,9 @@ export const TopNav = (props) => {
         </Stack>
       </Box>
       <AccountPopover
-        // anchorEl={accountPopover.anchorRef.current}
         open={open}
         onClose={handleClose}
       />
     </>
   );
 };
-
-// TopNav.propTypes = {
-//   onNavOpen: PropTypes.func
-// };
