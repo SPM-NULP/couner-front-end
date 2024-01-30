@@ -1,8 +1,10 @@
 import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/material';
-import { AccountProfile } from '../../sections/account/account-profile';
+import { AccountProfile } from '../../sections/account/account-profile'
 import { AccountProfileDetails } from '../../sections/account/account-profile-details';
 
-export const Account = () => (
+
+export const Account = (email, username, phoneNumber) => {
+  return(
   <>
     <Box
       component="main"
@@ -35,7 +37,11 @@ export const Account = () => (
                 md={6}
                 lg={8}
               >
-                <AccountProfileDetails />
+                <AccountProfileDetails
+                email={email}
+                phoneNumber={phoneNumber}
+                username={username} 
+                />
               </Grid>
             </Grid>
           </div>
@@ -43,4 +49,5 @@ export const Account = () => (
       </Container>
     </Box>
   </>
-);
+  )
+};
