@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/auth-slice';
+import { userReducer } from './user/user-slice';
 
 
 const persistConfig = {
@@ -19,10 +20,10 @@ const persistConfig = {
   storage: storage,
 };
 
-// const themePersistedConfig = {
-//   key: 'theme',
-//   storage,
-// };
+const userPersistConfig = {
+  key: 'user',
+  storage,
+};
 
 // const recipePersistedConfig = {
 //   key: 'recipe',
@@ -52,6 +53,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
+  user: persistReducer(userPersistConfig, userReducer),
 });
 
 export const store = configureStore({

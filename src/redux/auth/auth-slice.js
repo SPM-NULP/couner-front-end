@@ -18,7 +18,7 @@ const initialState = {
 };
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: 'auth',
   initialState,
 
   extraReducers: builder =>

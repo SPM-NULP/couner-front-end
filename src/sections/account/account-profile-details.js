@@ -11,6 +11,16 @@ import {
   Unstable_Grid2 as Grid
 } from '@mui/material';
 
+import { useSelector } from 'react-redux'
+// import { getUserData } from '../../redux/user/user-operations'
+import React from 'react';
+import {
+  selectEmail, 
+  // selectId, 
+  selectPhoneNumber, 
+  selectUsername
+} from '../../redux/user/user-selectors'
+
 const states = [
   {
     value: 'львів',
@@ -31,11 +41,28 @@ const states = [
 ];
 
 export const AccountProfileDetails = () => {
+  // const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(getUserData())
+  // }, [dispatch])
+
+  const email = useSelector(selectEmail)
+  const phoneNumber = useSelector(selectPhoneNumber)
+  const username = useSelector(selectUsername)
+  console.log(username)
+  // // const id = selectId()
+  // const email = selectEmail()
+  // const phoneNumber = selectPhoneNumber()
+  // const username = selectUsername()
+
   const [values, setValues] = useState({
+    // id: id,
     firstName: 'Іван',
     lastName: 'Іваненко',
-    email: 'ivanenko.ivan@gmail.com',
-    phone: '',
+    email: `${email}`,
+    username: `${username}`,
+    phone: phoneNumber ? `${phoneNumber}` : '',
     state: 'Львів',
     country: 'Україна'
   });
@@ -99,6 +126,20 @@ export const AccountProfileDetails = () => {
                   onChange={handleChange}
                   required
                   value={values.lastName}
+                />
+              </Grid>
+              <Grid
+                xs={12}
+                md={6}
+              >
+                <TextField
+                  fullWidth
+                  // helperText="Please specify the first name"
+                  label="Користувацьке ім'я"
+                  name="користувацьке ім'я"
+                  onChange={handleChange}
+                  required
+                  value={values.username}
                 />
               </Grid>
               <Grid
