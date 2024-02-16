@@ -2,7 +2,6 @@ import { Box, Container, Stack, Typography, Unstable_Grid2 as Grid } from '@mui/
 import { AccountProfile } from '../../sections/account/account-profile'
 import { AccountProfileDetails } from '../../sections/account/account-profile-details';
 
-
 export const Account = (email, username, phoneNumber) => {
   return(
   <>

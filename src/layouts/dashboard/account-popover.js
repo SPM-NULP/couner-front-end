@@ -5,16 +5,13 @@ import { useDispatch } from 'react-redux';
 import {  logoutUser } from '../../redux/auth/auth-operations';
 export const AccountPopover = (props) => {
   const dispatch = useDispatch()
-
   const { onClose, open } = props;
-
   const handleClick = () => {
     dispatch(logoutUser())
   }
 
   return (
     <Popover
-
       anchorOrigin={{
         horizontal: 'right',
         vertical: 'top'

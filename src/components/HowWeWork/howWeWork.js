@@ -72,7 +72,6 @@ export const FeaturesCards = () => {
         </Text>
         <Box justifyContent="center">
           <SimpleGrid 
-          // cols={{ base: 1, md: 3 }} spacing="xl" mt={50}
           className={classes.aboutlist} >
             {features}
           </SimpleGrid>

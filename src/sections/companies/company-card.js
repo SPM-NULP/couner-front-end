@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
-// import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
 import {ClockIcon, Battery100Icon} from '@heroicons/react/24/solid'
-// import ClockIcon from '@heroicons/react/24/solid/ClockIcon';
 import { Box, Card, CardContent, Divider, Stack, SvgIcon, Typography } from '@mui/material';
 
 export const CompanyCard = (props) => {
@@ -16,22 +14,6 @@ export const CompanyCard = (props) => {
       }}
     >
       <CardContent>
-        {/* <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            pb: 3,
-            height: '150px',
-            width: '160px'
-          }}
-        >
-          <img
-            src={company.logo} 
-            height='150px'
-            width='126px'
-            alt='device'
-          />
-        </Box> */}
         <Box 
         sx={{
           display: 'flex',
@@ -93,7 +75,6 @@ export const CompanyCard = (props) => {
             fontSize="small"
           >
             <ClockIcon />
-            {/* <ArrowDownOnSquareIcon /> */}
           </SvgIcon>
           <Typography
             color="text.secondary"

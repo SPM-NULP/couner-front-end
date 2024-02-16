@@ -44,7 +44,6 @@ export const OverviewLatestOrders = (props) => {
             <TableBody>
               {orders.map((indx) => {
                 const createdAt = format(indx.createdAt, 'dd/MM/yyyy');
-
                 return (
                   <TableRow
                     hover
@@ -60,9 +59,6 @@ export const OverviewLatestOrders = (props) => {
                       {createdAt}
                     </TableCell>
                     <TableCell>
-                      {/* <SeverityPill color={statusMap[indx.status]}>
-                        {indx.status}
-                      </SeverityPill> */}
                     </TableCell>
                   </TableRow>
                 );

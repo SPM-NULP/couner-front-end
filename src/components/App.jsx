@@ -5,25 +5,19 @@ import {OverviewPage} from '../pages/Overview'
 import { DevicesPage } from "../pages/Devices";
 import {AccountPage} from '../pages/Account'
 import { SettingsPage } from "../pages/Settings";
-
 import { MantineProvider} from '@mantine/core'
-
 import { PrivateRoute } from "../routes/PrivateRoutes";
 import {PublicRoute} from '../routes/PublicRoute'
-
 import { Routes, Route } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {selectToken} from '../redux/auth/auth-selectors'
-// import {getCurrentUser} from '../redux/auth/auth-operations'
-
 import './index.css'
 
 export const App = () => {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   useEffect(() => {
-    // token && dispatch(getCurrentUser());
   }, [dispatch, token]);
   return (
       <MantineProvider>

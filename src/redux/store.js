@@ -25,32 +25,6 @@ const userPersistConfig = {
   storage,
 };
 
-// const recipePersistedConfig = {
-//   key: 'recipe',
-//   storage,
-// };
-
-// const ingredientsPersistConfig = {
-//   key: 'ingredients',
-//   storage,
-//   whitelist: ['ingredients'],
-// };
-
-// const ownRecipePersistConfig = {
-//   key: 'ownRecipes',
-//   storage,
-// };
-
-// const persistShoppingListConfig = {
-//   key: 'shoppingList',
-//   storage,
-// };
-
-// const persistFavoritesConfig = {
-//   key: 'favorites',
-//   storage,
-// };
-
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
   user: persistReducer(userPersistConfig, userReducer),

@@ -11,12 +11,10 @@ import {
 import { Logo } from '../../../src/components/logo';
 import { Scrollbar } from '../../../src/components/scrollbar';
 import { SideNavItem } from './side-nav-item';
-
 import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 import CogIcon from '@heroicons/react/24/solid/CogIcon';
 import ComputerDesktopIcon from "@heroicons/react/24/solid/ComputerDesktopIcon";
 import UserIcon from '@heroicons/react/24/solid/UserIcon';
-
 
 export const items = [
   {
@@ -37,7 +35,6 @@ export const items = [
       </SvgIcon>
     )
   },
-
   {
     title: 'Мої пристрої',
     path: '/devices',
@@ -67,10 +64,7 @@ export const items = [
   },
 ];
 
-
-
 export const SideNav = (props) => {
-
   const content = (
     <Scrollbar
       sx={{
@@ -152,7 +146,6 @@ export const SideNav = (props) => {
           >
             {items.map((item) => {
               const active = item.path 
-
               return (
                 <SideNavItem
                   active={active}
@@ -171,7 +164,6 @@ export const SideNav = (props) => {
       </Box>
     </Scrollbar>
   );
-
 
     return (
       <Drawer

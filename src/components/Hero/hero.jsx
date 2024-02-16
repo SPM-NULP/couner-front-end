@@ -15,7 +15,6 @@ export function Hero() {
           <Text c="dimmed" mt="md">
             Встановлюйте наш пристрій та забудьте про зняття та подачу показників!
           </Text>
-
           <List
             mt={30}
             spacing="sm"
@@ -36,17 +35,12 @@ export function Hero() {
               <b>Зручні сайт та додаток</b> – переглядайте статистику незалежно від вашого місцезнаходження
             </List.Item>
           </List>
-
           <Group mt={30}>
             <Button radius="xl" size="md" className={classes.control}>
               Замовити пристрій
             </Button>
-            {/* <Button variant="default" radius="xl" size="md" className={classes.control}>
-              Source code
-            </Button> */}
           </Group>
         </div>
-        {/* <Image src='assets/counter.webp' className={classes.image} /> */}
       </div>
     </Container>
   );

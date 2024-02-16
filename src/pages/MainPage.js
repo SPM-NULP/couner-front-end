@@ -2,7 +2,7 @@ import { Header } from '../components/Header/header';
 import { Hero } from '../components/Hero/hero';
 import { Footer } from '../components/Footer/footer';
 import {Features} from '../components/Features/features'
-import { AboutUs } from "../components/AboutUs/aboutUs";
+// import { AboutUs } from "../components/AboutUs/aboutUs";
 import {FeaturesCards} from '../components/HowWeWork/howWeWork'
 
 import styles from "../components/style";
@@ -18,7 +18,7 @@ export const MainPage = () => {
         </div>
       </div>
       <Features></Features>
-      <AboutUs></AboutUs>
+      {/* <AboutUs></AboutUs> */}
       <FeaturesCards></FeaturesCards>
       <Footer></Footer>
     </div>

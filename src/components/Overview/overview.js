@@ -4,7 +4,6 @@ import { OverviewSales } from '../../sections/overview/overview-stat';
 
 export const Overview = () => (
   <>
-
     <Box
       component="main"
       sx={{

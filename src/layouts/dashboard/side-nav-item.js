@@ -2,10 +2,8 @@ import PropTypes from 'prop-types';
 import { Box, ButtonBase } from '@mui/material';
 import {NavLink} from 'react-router-dom'
 
-
 export const SideNavItem = (props) => {
   const { active = false, disabled, icon, path, title } = props;
-
   return (
     <li>
       <ButtonBase
