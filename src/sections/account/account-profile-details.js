@@ -41,27 +41,16 @@ const states = [
 ];
 
 export const AccountProfileDetails = () => {
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(getUserData())
-  // }, [dispatch])
-
   const email = useSelector(selectEmail)
   const phoneNumber = useSelector(selectPhoneNumber)
   const username = useSelector(selectUsername)
   console.log(username)
-  // // const id = selectId()
-  // const email = selectEmail()
-  // const phoneNumber = selectPhoneNumber()
-  // const username = selectUsername()
 
   const [values, setValues] = useState({
-    // id: id,
     firstName: 'Іван',
     lastName: 'Іваненко',
-    email: `${email}`,
-    username: `${username}`,
+    email: email ? `${email}` : '',
+    username: username ? `${username}` : '',
     phone: phoneNumber ? `${phoneNumber}` : '',
     state: 'Львів',
     country: 'Україна'
@@ -92,7 +81,6 @@ export const AccountProfileDetails = () => {
     >
       <Card>
         <CardHeader
-          // subheader="The information can be edited"
           title="Профіль"
         />
         <CardContent sx={{ pt: 0 }}>
@@ -107,7 +95,6 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  // helperText="Please specify the first name"
                   label="Ім'я"
                   name="Ім'я"
                   onChange={handleChange}
@@ -134,7 +121,6 @@ export const AccountProfileDetails = () => {
               >
                 <TextField
                   fullWidth
-                  // helperText="Please specify the first name"
                   label="Користувацьке ім'я"
                   name="користувацьке ім'я"
                   onChange={handleChange}

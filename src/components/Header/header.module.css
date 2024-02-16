@@ -6,8 +6,12 @@
     padding-right: var(--mantine-spacing-md);
     border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
   }
+  a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
   
-  .link {
+.link {
     display: flex;
     align-items: center;
     height: 100%;
@@ -48,3 +52,31 @@
     border-top: rem(1px) solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
   }
 
+.profile_data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.profile_name{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.08;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  color: #1E1E1E;
+}
+
+.profile_email{
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #5F5F5F;
+  /* margin-top: -10px; */
+}

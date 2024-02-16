@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Group,
   Button,
@@ -13,7 +14,26 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
+
 } from '@mantine/core';
+
+import Avatar from '@mui/material/Avatar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+// import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+// import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+
+import {
+  Logout,
+  Settings, 
+  Person,
+  Computer,
+  DataUsage
+} from '@mui/icons-material';
+
 import { useDisclosure } from '@mantine/hooks';
 import {
   IconNotification,
@@ -29,8 +49,8 @@ import {useSelector} from 'react-redux'
 import {selectToken} from '../../redux/auth/auth-selectors'
 import '@mantine/core/styles.css';
 import { NavLink } from 'react-router-dom';
-
-// import {Logo} from '../logo'
+import { useDispatch } from 'react-redux';
+import {  logoutUser } from '../../redux/auth/auth-operations';
 
 const mockdata = [
   {
@@ -70,8 +90,20 @@ export const Header = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const theme = useMantineTheme();
-  
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const dispatch = useDispatch()
+  const logout = () => {
+    dispatch(logoutUser())
+  }
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  
   const links = mockdata.map((item) => (
     <UnstyledButton className={classes.subLink} key={item.title}>
       <Group wrap="nowrap" align="flex-start">
@@ -96,9 +128,6 @@ export const Header = () => {
         <Group justify="space-between" h="100%">
           <a href="#home" exact >
             <img src="https://lh3.googleusercontent.com/pw/ABLVV85bweoz0Zy0U9LZvkJqc2-oR2bnr2extYJR7PSMa0fHc9-r1X2ImkUII97NQN9qSOTjlV2n1a17fejjHa9E7jHDIoj_FNTy9Zb8q274u_zeYwVMUk0=w600-h315-p-k" alt="logo" height="60px" width="80px" />
-            {/* <img src='https://lh3.googleusercontent.com/pw/ABLVV86cvpYZ_KyN5LybQESTMMXLzisGO423xWLJgmKloQIZ6Pj8bFEs-wjc-CrwMSPdcN-RxtjzdfxHp_3GWCpDM1xn2mihumfw8u6wInukVdN5LZqA1qHbPQkJIzSfKHtB5EZ0vmVSwSLMBBq9bkGrgfcz6qkT-Fcg0pV34XwrFbhe8Q1o2MSZrjjafkvc7EcBCieSlghaJl-zc2nykjoskUlg_rkKbOumZIGWDMkeGfWLsalotslP9qZZTFgKmGD-EdFopZt4zOdJzuhOPx_XfjstGQSJ71tGadDZLJ0SnMaVTID1kFtikpL_U91rnhjDb7yjfUqoK-pszYzfnskjH0RISMJraV1W8tvVHbjRYU-QNoxbIozv2kNgNxMXzOUthylf0pJgi2MuqpzIV6F-cgQpz2YRI6WgpLxum3r8zE9Eu6tD38dNDIaSpwkBR9vHdpXfSIodaAgpsW1cfHOvoGiZA9KNnbQ9k_N7dvOaGHspLfdIgG85eecU2I35UGNb35gQSz0K1Cz5wIsK974vHTxfflVYvzxYzUkDlTKCOUxMwBqXSm4DeJFMA5XkEQyjMwHT5D6ojLY0KRKr5iA82jdPidkJcGvDhTOWQ665hkyH4ahyo9NRRRyaanhlRau1Xl7qaiknjJGtJzKNc9emTNBRGCrgWj7MKPgtU8SgdaJXn-LJh3klrXogQXilQr0ADpwvWHTRnBlCnC-B76O1Qbyg18FyPkH3R6MCI8iyTSrAkJqAf5szjJb6gYWOO1MFSbMNVhGxLt_ucBfLifGyHognkndwPU-VacCal9X5-xbf9nr8QxewzC8h3eO3HII8o5IZeNnpszw89Bx-2Aia_NafVmmgJyVDhgW3Hp590wBANpa4fIfVwTuSsFrFcHuytuwA5g31gWHnlWBsT28BojlXMlsMOFHLT06SuOKFoQWw8Vs7MQViuTV52Q2qklxTleDUA93aldvi_Vw=w660-h420-s-no-gm?authuser=0' alt='logo'/> */}
-            {/* <img src='https://drive.google.com/uc?export=view&id=1nkbZzHQg6UoGFLRc6rjN-kpD9qQdOs-X' alt="logo" height="60px" width="80px"/> */}
-            {/* <Logo width='60px' height='60px' /> */}
           </a >
           <Group h="100%" gap={0} visibleFrom="sm">
             <a href="#home" className={classes.link}>
@@ -114,12 +143,109 @@ export const Header = () => {
               Як ми працюємо
             </a>
           </Group>
-
-          {isLogined ? <Group>
-            <NavLink to='/overview'>
-              <Button variant='default'>Персональний кабінет</Button>
+          {isLogined ?
+          <Group>
+          <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+          <Tooltip title="Профіль">
+            <IconButton
+              onClick={handleClick}
+              size="small"
+              sx={{ ml: 2 }}
+              aria-controls={open ? 'account-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+            >
+              <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            </IconButton>
+          </Tooltip>
+        </Box> 
+          <Menu
+          anchorEl={anchorEl}
+          id="account-menu"
+          open={open}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              overflow: 'visible',
+              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+              mt: 1.5,
+              '& .MuiAvatar-root': {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              '&::before': {
+                content: '""',
+                display: 'block',
+                position: 'absolute',
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                bgcolor: 'background.paper',
+                transform: 'translateY(-50%) rotate(45deg)',
+                zIndex: 0,
+              },
+            },
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem sx={{paddingBottom: "4px", paddingTop: '4px' }}>
+            <Avatar sx={{ width: 32, height: 32, }} >M</Avatar>
+            {/* <Group display={'flex'} ml={'8px'} className={classes.profile_data}> */}
+            <ul className={classes.profile_data}>
+              <li>
+                <p className={classes.profile_name}>Іван Іваненко</p>
+              </li>
+              <li>
+                <p className={classes.profile_email}>ivanenko@gmail.com</p>
+              </li>
+            </ul>
+            {/* </Group> */}
+          </MenuItem>
+          <Divider mb={'4px'} mt={'4px'}/>
+          <MenuItem onClick={handleClose} sx={{paddingBottom: "4px", paddingTop: '4px'}}>
+            <ListItemIcon>
+              <DataUsage fontSize="small" />
+            </ListItemIcon>
+            <NavLink to='/overview'>Статистика</NavLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose} sx={{paddingBottom: "4px", paddingTop: '4px' }}>
+            <ListItemIcon>
+              <Computer fontSize="small" />
+            </ListItemIcon>
+              <NavLink to='/devices'>
+                Мої пристрої 
+              </NavLink>
+          </MenuItem>
+          <Divider mb={'4px'} mt={"4px"}/>
+          <MenuItem onClick={handleClose} sx={{paddingBottom: "4px", paddingTop: "4px" }}>
+            <ListItemIcon>
+              <Person fontSize="small" />
+            </ListItemIcon>
+            <NavLink to='/account'>Профіль</NavLink>
+          </MenuItem>
+          <MenuItem onClick={handleClose} sx={{paddingBottom: "4px", paddingTop: "4px"}}>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            <NavLink to='/settings'>Налаштування</NavLink>
+          </MenuItem>
+          <Divider mb={'4px'} mt={"4px"} />
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <Logout fontSize="small" />
+            </ListItemIcon>
+            <NavLink to='/' onClick={logout}>
+                Вийти
             </NavLink>
-          </Group>
+          </MenuItem>
+        </Menu>
+        </Group>
             : <Group visibleFrom="sm">
             <NavLink to='/login'>
               <Button variant="default">Логін</Button>
@@ -129,11 +255,9 @@ export const Header = () => {
             </NavLink>
           </Group>
           }
-
           <Burger className='icon' opened={drawerOpened} color='#fff' onClick={toggleDrawer} hiddenFrom="sm" />
         </Group>
       </header>
-
       <Drawer
         opened={drawerOpened}
         onClose={closeDrawer}
@@ -145,7 +269,6 @@ export const Header = () => {
       >
         <ScrollArea h={`calc(100vh - ${rem(80)})`} mx="-md">
           <Divider my="sm" />
-
           <a href="#home" className={classes.link}>
             Home
           </a>
@@ -167,9 +290,7 @@ export const Header = () => {
           <a href="#home" className={classes.link}>
             Academy
           </a>
-
           <Divider my="sm" />
-
           <Group justify="center" grow pb="xl" px="md">
             <NavLink to='/login'>
               <Button variant="default">Log in</Button>

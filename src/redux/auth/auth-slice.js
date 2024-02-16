@@ -9,7 +9,12 @@ import {
 } from './auth-operations';
 
 const initialState = {
-  user: { email: '', username: '' },
+  user: { 
+    name: '',
+    surname: '',
+    email: '',
+    username: '' 
+  },
   token: '',
   isAuthentificated: false,
   isLoggedIn: 'false',

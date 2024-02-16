@@ -30,10 +30,8 @@ export const Navigation = () => {
                                     </a>
                                   </li>
                                 ))}
-          
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-
             {click ? (
               <span className="icon">
                 <HamburgetMenuClose />{" "}

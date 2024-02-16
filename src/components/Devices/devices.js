@@ -26,8 +26,6 @@ const companies = [
   }
 ];
 
-// const companies = null
-
 export const Devices = () => {
   const dispatch = useDispatch()
   useEffect(() => {
