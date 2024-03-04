@@ -1,8 +1,8 @@
 import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
-import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import { Box, Button, Container, SvgIcon, Typography, Grid} from '@mui/material';
+import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
 
-
-export const Error = () => {
+export const Error = ({MainMessage, SubMessage}) => {
     return(
         <>
         <Box
@@ -11,7 +11,8 @@ export const Error = () => {
             alignItems: 'center',
             display: 'flex',
             flexGrow: 1,
-            minHeight: '100%'
+            minHeight: '100%',
+            mb: 3
           }}
         >
           <Container maxWidth="md">
@@ -28,7 +29,7 @@ export const Error = () => {
                   textAlign: 'center'
                 }}
               >
-                <img
+                {/* <img
                   alt="Under development"
                   src="/assets/errors/error-404.png"
                   style={{
@@ -36,35 +37,48 @@ export const Error = () => {
                     maxWidth: '100%',
                     width: 400
                   }}
-                />
+                /> */}
               </Box>
               <Typography
                 align="center"
                 sx={{ mb: 3 }}
-                variant="h3"
+                variant="h5"
               >
-                404: The page you are looking for isn’t here
+                {MainMessage}
               </Typography>
               <Typography
                 align="center"
                 color="text.secondary"
                 variant="body1"
               >
-                You either tried some shady route or you came here by mistake.
-                Whichever it is, try using the navigation
+                {SubMessage}
               </Typography>
+              <Grid
+                sx={{ mt: 3 }}
+                >
+        
               <Button
-                href="/"
+                href="/counter-front-end/overview"
                 startIcon={(
                   <SvgIcon fontSize="small">
                     <ArrowLeftIcon />
                   </SvgIcon>
                 )}
-                sx={{ mt: 3 }}
+                sx={{ mr: 1 }}
                 variant="contained"
               >
-                Go back to dashboard
+                Повернутись на головну
               </Button>
+              <Button
+                startIcon={(
+                  <SvgIcon fontSize="small">
+                    <PlusIcon />
+                  </SvgIcon>
+                )}
+                variant="contained">
+                Додати пристрій 
+              </Button>
+              </Grid>
             </Box>
           </Container>
         </Box>

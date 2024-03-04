@@ -6,6 +6,7 @@ import {
   Stack,
   SvgIcon,
   Typography,
+  Card,
   Unstable_Grid2 as Grid
 } from '@mui/material';
 import { CompanyCard } from '../../sections/companies/company-card';
@@ -16,14 +17,14 @@ import {useDispatch} from 'react-redux'
 import { getAll } from '../../redux/device-controller/device-operations'
 
 const companies = [
-  {
-    id: '2569ce0d517a7f06d3ea1f24',
-    createdAt: '27/03/2019',
-    description: 'The demo version of smart counter ',
-    logo: '/assets/counter1.jpg',
-    title: 'SPM smart sensor',
-    downloads: '594'
-  }
+  // {
+  //   id: '2569ce0d517a7f06d3ea1f24',
+  //   createdAt: '27/03/2019',
+  //   description: 'The demo version of smart counter ',
+  //   logo: '/assets/counter1.jpg',
+  //   title: 'SPM smart sensor',
+  //   downloads: '594'
+  // }
 ];
 
 export const Devices = () => {
@@ -40,7 +41,6 @@ export const Devices = () => {
         py: 8
       }}
     >
-    { companies.length === 0 ? <Error></Error> :
       <Container maxWidth="xl">
         <Stack spacing={3}>
           <Stack
@@ -66,6 +66,14 @@ export const Devices = () => {
               </Button>
             </div>
           </Stack>
+          {companies.length == 0 ? 
+          <Card>
+          <Error
+          MainMessage="У вас ще немає активних пристроїв"
+          SubMessage="Ви можете додати новий пристрій на цій сторінці"
+        ></Error>
+        </Card>
+          :
           <Grid
             container
             spacing={3}
@@ -81,8 +89,9 @@ export const Devices = () => {
               </Grid>
             ))}
           </Grid>
+          }
         </Stack>
-      </Container>}
+      </Container>
     </Box>
   </>
   )
