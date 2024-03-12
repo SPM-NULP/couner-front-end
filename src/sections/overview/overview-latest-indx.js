@@ -14,16 +14,16 @@ import {
   TableHead,
   TableRow
 } from '@mui/material';
-import { Scrollbar } from '../../components/scrollbar';
+// import { Scrollbar } from '../../components/scrollbar';
 
 export const OverviewLatestOrders = (props) => {
-  const { orders = [], sx } = props;
+  const { orders = []} = props;
 
   return (
-    <Card sx={sx}>
+    <Card sx={{ width: '100%' }}>
       <CardHeader title="Останні передані показаники" />
-      <Scrollbar sx={{ flexGrow: 1 }}>
-        <Box sx={{ minWidth: 800 }}>
+      {/* <Scrollbar sx={{ flexGrow: 1}}> */}
+        <Box sx={{ width: '100%' }}>
           <Table>
             <TableHead>
               <TableRow>
@@ -31,7 +31,7 @@ export const OverviewLatestOrders = (props) => {
                   Показник
                 </TableCell>
                 <TableCell>
-                  Використано
+                  Спожито 
                 </TableCell>
                 <TableCell sortDirection="desc">
                   Дата
@@ -42,18 +42,18 @@ export const OverviewLatestOrders = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orders.map((indx) => {
-                const createdAt = format(indx.createdAt, 'dd/MM/yyyy');
+              {orders.map((order) => {
+                const createdAt = format(order.createdAt, 'dd/MM/yyyy');
                 return (
                   <TableRow
                     hover
-                    key={indx.id}
+                    key={order.id}
                   >
                     <TableCell>
-                      {indx.indx}
+                      {order.indx}
                     </TableCell>
                     <TableCell>
-                      {indx.used}
+                      {order.used}
                     </TableCell>
                     <TableCell>
                       {createdAt}
@@ -66,7 +66,7 @@ export const OverviewLatestOrders = (props) => {
             </TableBody>
           </Table>
         </Box>
-      </Scrollbar>
+      {/* </Scrollbar> */}
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
         <Button

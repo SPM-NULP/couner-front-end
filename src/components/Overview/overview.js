@@ -35,6 +35,7 @@ export const Overview = () => (
             />
           </Grid>
           <Grid
+            width={'100%'}
             xs={12}
             md={12}
             lg={12}
@@ -90,7 +91,6 @@ export const Overview = () => (
                   status: 'На сервері'
                 }
               ]}
-              sx={{ height: '100%' }}
             />
           </Grid>
         </Grid>

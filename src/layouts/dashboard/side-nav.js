@@ -1,20 +1,29 @@
 import PropTypes from 'prop-types';
-import ChevronDownIcon from '@heroicons/react/24/solid/ChevronUpDownIcon';
 import {
   Box,
   Divider,
   Drawer,
   Stack,
   SvgIcon,
-  Typography,
 } from '@mui/material';
-import { Logo } from '../../../src/components/logo';
 import { Scrollbar } from '../../../src/components/scrollbar';
 import { SideNavItem } from './side-nav-item';
-import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
-import CogIcon from '@heroicons/react/24/solid/CogIcon';
-import ComputerDesktopIcon from "@heroicons/react/24/solid/ComputerDesktopIcon";
-import UserIcon from '@heroicons/react/24/solid/UserIcon';
+import { 
+  HomeIcon,
+  ShoppingCartIcon,
+  ChartBarIcon,
+  CogIcon,
+  ComputerDesktopIcon,
+  UserIcon
+} from '@heroicons/react/24/solid';
+import {Avatar} from '@mui/material';
+import classes from './dashboard.module.css'
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {  logoutUser } from '../../redux/auth/auth-operations';
+import {Logout} from '@mui/icons-material';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+import {selectEmail, selectFirstName, selectLastName} from '../../redux/user/user-selectors'
 
 export const items = [
   {
@@ -22,7 +31,16 @@ export const items = [
     path: '/',
     icon: (
       <SvgIcon fontSize="small">
-        <ChartBarIcon />
+        <HomeIcon />
+      </SvgIcon>
+    )
+  },
+  {
+    title: 'Магазин',
+    path: '',
+    icon: (
+      <SvgIcon fontSize="small">
+        <ShoppingCartIcon />
       </SvgIcon>
     )
   },
@@ -65,6 +83,13 @@ export const items = [
 ];
 
 export const SideNav = (props) => {
+  const dispatch = useDispatch()
+  const email = useSelector(selectEmail)
+  const name = useSelector(selectFirstName)
+  const surname = useSelector(selectLastName)
+  const logout = () => {
+    dispatch(logoutUser())
+  }
   const content = (
     <Scrollbar
       sx={{
@@ -87,43 +112,29 @@ export const SideNav = (props) => {
         <Box sx={{ p: 3 }}>
           <Box
             sx={{
-              display: 'inline-flex',
-              height: 32,
-              width: 32
-            }}
-          >
-            <Logo />
-          </Box>
-          <Box
-            sx={{
               alignItems: 'center',
               backgroundColor: 'rgba(255, 255, 255, 0.04)',
               borderRadius: 1,
               cursor: 'pointer',
               display: 'flex',
-              justifyContent: 'space-between',
               mt: 2,
               p: '12px'
             }}
           >
-            <div>
-              <Typography
-                color="inherit"
-                variant="subtitle1"
-              >
-                Назва пристрою
-              </Typography>
-              <Typography
-                variant="body2"
-              >
-                Production
-              </Typography>
+            <Avatar sx={{ width: 32, height: 32, marginRight: '15px' }} >{name[0]}</Avatar>
+            <ul className={classes.profile_data}>
+              <li>
+                <p className={classes.profile_name}>{name} {surname}</p>
+              </li>
+              <li>
+                <p className={classes.profile_email}>{email}</p>
+              </li>
+            </ul>
+            <div className={classes.logouticon}>
+              <NavLink to='/' onClick={logout}>
+                  <Logout fontSize="small" />
+              </NavLink>
             </div>
-            <SvgIcon
-              fontSize="small"
-            >
-              <ChevronDownIcon />
-            </SvgIcon>
           </Box>
         </Box>
         <Divider sx={{ borderColor: 'neutral.700' }} />

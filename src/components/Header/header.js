@@ -14,16 +14,13 @@ import {
   ScrollArea,
   rem,
   useMantineTheme,
-
 } from '@mantine/core';
 
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-// import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 
 import {
@@ -51,6 +48,8 @@ import '@mantine/core/styles.css';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {  logoutUser } from '../../redux/auth/auth-operations';
+import {selectEmail, selectFirstName, selectLastName} from '../../redux/user/user-selectors'
+// import {select} from '../../redux/user/user-selectors'
 
 const mockdata = [
   {
@@ -93,6 +92,9 @@ export const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch()
+  const email = useSelector(selectEmail)
+  const name = useSelector(selectFirstName)
+  const surname = useSelector(selectLastName)
   const logout = () => {
     dispatch(logoutUser())
   }
@@ -155,7 +157,7 @@ export const Header = () => {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
             >
-              <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+              <Avatar sx={{ width: 32, height: 32 }}>{name[0]}</Avatar>
             </IconButton>
           </Tooltip>
         </Box> 
@@ -195,17 +197,15 @@ export const Header = () => {
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
         >
           <MenuItem sx={{paddingBottom: "4px", paddingTop: '4px' }}>
-            <Avatar sx={{ width: 32, height: 32, }} >M</Avatar>
-            {/* <Group display={'flex'} ml={'8px'} className={classes.profile_data}> */}
+            <Avatar sx={{ width: 32, height: 32, }} >{name[0]}</Avatar>
             <ul className={classes.profile_data}>
               <li>
-                <p className={classes.profile_name}>Іван Іваненко</p>
+                <p className={classes.profile_name}>{name} {surname}</p>
               </li>
               <li>
-                <p className={classes.profile_email}>ivanenko@gmail.com</p>
+                <p className={classes.profile_email}>{email}</p>
               </li>
             </ul>
-            {/* </Group> */}
           </MenuItem>
           <Divider mb={'4px'} mt={'4px'}/>
           <MenuItem onClick={handleClose} sx={{paddingBottom: "4px", paddingTop: '4px'}}>

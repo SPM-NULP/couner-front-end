@@ -3,8 +3,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:8080/api/';
 
-export const getAll = createAsyncThunk(
-    'device/getAll',
+export const getDisplays = createAsyncThunk(
+    'display/getDisplays',
     async (_, thunkApi) => {
     const state = thunkApi.getState();
     
@@ -13,7 +13,8 @@ export const getAll = createAsyncThunk(
     }
 
     try {
-        const res = await axios.get('device/getAllDevices');
+        const res = await axios.get('display_count/getAllDisplayCounts');
+        console.log(res.data)
         return res.data;
     } catch (error) {
         return thunkApi.rejectWithValue;

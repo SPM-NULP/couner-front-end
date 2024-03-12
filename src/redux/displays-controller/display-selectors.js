@@ -1,0 +1,1 @@
+export const selectDispalys = state => state.dispaly

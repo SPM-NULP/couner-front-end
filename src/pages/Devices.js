@@ -1,21 +1,34 @@
-import {Devices} from '../components/Devices/devices'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Devices } from '../components/Devices/devices';
 import { SideNav } from '../layouts/dashboard/side-nav';
-import {TopNav} from '../layouts/dashboard/top-nav'
-import './Overview.css'
+
+import { getAll } from '../redux/device-controller/device-operations';
+import { selectAllDevices } from '../redux/device-controller/device-selectors';
+
+import './Overview.css';
 
 export const DevicesPage = () => {
+    const dispatch = useDispatch()
+    const devices = useSelector(selectAllDevices)
+    useEffect(() => {
+      dispatch(getAll());
+    }, [dispatch]);
+
     return (
       <div style={{
         msOverflowStyle: "none",
         scrollbarWidth: 'none',
         WebkitScrollSnapType: 'none'
       }}>
-        <TopNav/>
-          <SideNav className='scrollable-bar'/>
+        <SideNav className='scrollable-bar'/>
         <div style={{
           paddingLeft: 260,
         }}>
-          <Devices/>
+          <Devices
+            devices={devices}
+          />
         </div>
       </div>
     );

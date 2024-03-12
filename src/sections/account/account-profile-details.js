@@ -18,7 +18,9 @@ import {
   selectEmail, 
   // selectId, 
   selectPhoneNumber, 
-  selectUsername
+  selectUsername, 
+  selectFirstName,
+  selectLastName
 } from '../../redux/user/user-selectors'
 
 const states = [
@@ -44,11 +46,12 @@ export const AccountProfileDetails = () => {
   const email = useSelector(selectEmail)
   const phoneNumber = useSelector(selectPhoneNumber)
   const username = useSelector(selectUsername)
-  console.log(username)
+  const name = useSelector(selectFirstName)
+  const surname = useSelector(selectLastName)
 
   const [values, setValues] = useState({
-    firstName: 'Іван',
-    lastName: 'Іваненко',
+    firstName: name,
+    lastName: surname,
     email: email ? `${email}` : '',
     username: username ? `${username}` : '',
     phone: phoneNumber ? `${phoneNumber}` : '',

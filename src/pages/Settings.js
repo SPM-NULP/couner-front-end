@@ -1,6 +1,6 @@
 import {Settings} from '../components/Settings/settings'
 import { SideNav } from '../layouts/dashboard/side-nav';
-import {TopNav} from '../layouts/dashboard/top-nav'
+// import {TopNav} from '../layouts/dashboard/top-nav'
 import './Overview.css'
 
 export const SettingsPage = () => {
@@ -10,7 +10,7 @@ export const SettingsPage = () => {
         scrollbarWidth: 'none',
         WebkitScrollSnapType: 'none'
       }}>
-        <TopNav/>
+        {/* <TopNav/> */}
           <SideNav className='scrollable-bar'/>
         <div style={{
           paddingLeft: 260,

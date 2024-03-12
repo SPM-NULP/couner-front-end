@@ -1,8 +1,6 @@
-import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
-import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import { Box, Button, Container, SvgIcon, Typography, Grid} from '@mui/material';
 
-
-export const Error = () => {
+export const Error = ({MainMessage, SubMessage, buttons}) => {
     return(
         <>
         <Box
@@ -11,7 +9,8 @@ export const Error = () => {
             alignItems: 'center',
             display: 'flex',
             flexGrow: 1,
-            minHeight: '100%'
+            minHeight: '100%',
+            mb: 3
           }}
         >
           <Container maxWidth="md">
@@ -28,43 +27,39 @@ export const Error = () => {
                   textAlign: 'center'
                 }}
               >
-                <img
-                  alt="Under development"
-                  src="/assets/errors/error-404.png"
-                  style={{
-                    display: 'inline-block',
-                    maxWidth: '100%',
-                    width: 400
-                  }}
-                />
               </Box>
               <Typography
                 align="center"
                 sx={{ mb: 3 }}
-                variant="h3"
+                variant="h5"
               >
-                404: The page you are looking for isn’t here
+                {MainMessage}
               </Typography>
               <Typography
                 align="center"
                 color="text.secondary"
                 variant="body1"
               >
-                You either tried some shady route or you came here by mistake.
-                Whichever it is, try using the navigation
+                {SubMessage}
               </Typography>
-              <Button
-                href="/"
-                startIcon={(
-                  <SvgIcon fontSize="small">
-                    <ArrowLeftIcon />
-                  </SvgIcon>
-                )}
+              <Grid
                 sx={{ mt: 3 }}
-                variant="contained"
-              >
-                Go back to dashboard
-              </Button>
+                >
+                {buttons.map((btn) => (
+                  <Button
+                    href={btn.href}
+                    startIcon={(
+                      <SvgIcon fontSize="small">
+                        {btn.icon}
+                      </SvgIcon>
+                    )}
+                    sx={{ mr: 1 }}
+                    variant="contained"
+                  >
+                    {btn.btn_text}
+                  </Button>
+                ))}
+              </Grid>
             </Box>
           </Container>
         </Box>

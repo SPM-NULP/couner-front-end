@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import {getUserData} from './user-operations';
 
 const initialState = {
+    name: '',
+    surname: '',
     email: '', 
     username: '', 
     phoneNumber: '',
@@ -18,6 +20,8 @@ export const userDataSlice = createSlice({
       builder
         .addCase(getUserData.pending, state => state)
         .addCase(getUserData.fulfilled, (state, action) => {
+          state.name = action.payload.firstName
+          state.surname = action.payload.lastName
           state.email = action.payload.email;
           state.username = action.payload.username
           state.error = null;
