@@ -42,13 +42,6 @@ const buttonsError = [
 ]
 
 export const Devices = ({devices}) => {
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(getAll());
-  // }, [dispatch]);
-
-  // const devices = useSelector(selectAllDevices)
-  // console.log(devices)
   return (
     <>
     <Box
@@ -83,7 +76,7 @@ export const Devices = ({devices}) => {
               </Button>
             </div>
           </Stack>
-          {devices == undefined || devices.length == 0 ? 
+          {devices === undefined || devices.length === 0 ? 
             <Card>
               <Error
                 MainMessage="Схоже у вас ще немає активних пристроїв"
