@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { getAll } from '../device-controller'
+import { getAll } from '../device-controller/device-operations'
 
 const initialState = {
     devices: [],
@@ -16,7 +16,7 @@ export const deviceSlice = createSlice({
       builder
         .addCase(getAll.pending, state => state)
         .addCase(getAll.fulfilled, (state, action) => {
-            state.devices = action.devices
+            state.devices = action.payload
             state.error = null;
         })
         .addCase(getAll.rejected, (state, action) => {

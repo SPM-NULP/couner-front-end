@@ -1,0 +1,1 @@
+export const selectAllDevices = state => state.device.devices

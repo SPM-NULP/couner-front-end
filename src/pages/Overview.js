@@ -1,21 +1,34 @@
-import {Overview} from '../components/Overview/overview'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { SideNav } from '../layouts/dashboard/side-nav';
-// import {TopNav} from '../layouts/dashboard/top-nav'
+import { Overview } from '../components/Overview/overview'
+
+import { selectDispalys } from 'redux/displays-controller/display-selectors';
+import { getDisplays } from '../redux/displays-controller/display-operations';
+
 import './Overview.css'
 
 export const OverviewPage = () => {
+  const dispatch = useDispatch()
+  const displays = useSelector(selectDispalys)
+  useEffect(()=> {
+    dispatch(getDisplays())
+  }, [dispatch])
+
     return (
       <div style={{
         msOverflowStyle: "none",
         scrollbarWidth: 'none',
         WebkitScrollSnapType: 'none'
       }}>
-        {/* <TopNav/> */}
-          <SideNav className='scrollable-bar'/>
+        <SideNav className='scrollable-bar'/>
         <div style={{
           paddingLeft: 260,
         }}>
-          <Overview/>
+          <Overview
+            displays={displays}
+          />
         </div>
       </div>
     );

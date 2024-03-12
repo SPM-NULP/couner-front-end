@@ -13,7 +13,8 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth/auth-slice';
 import { userReducer } from './user/user-slice';
-
+import { deviceReducer } from './device-controller/device-slice'
+import { displayReducer } from './displays-controller/display-slice'
 
 const persistConfig = {
   key: 'root',
@@ -25,9 +26,21 @@ const userPersistConfig = {
   storage,
 };
 
+const devicePersistConfig = {
+  key: 'device',
+  storage,
+};
+
+const displayPersistConfig = {
+  key: 'display',
+  storage,
+}
+
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
   user: persistReducer(userPersistConfig, userReducer),
+  device: persistReducer(devicePersistConfig, deviceReducer),
+  display: persistReducer(displayPersistConfig, displayReducer)
 });
 
 export const store = configureStore({
