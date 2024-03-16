@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import ArrowRightIcon from '@heroicons/react/24/solid/ArrowRightIcon';
 import {
   Box,
@@ -14,15 +14,11 @@ import {
   TableHead,
   TableRow
 } from '@mui/material';
-// import { Scrollbar } from '../../components/scrollbar';
 
-export const OverviewLatestOrders = (props) => {
-  const { orders = []} = props;
-
+export const OverviewLatestDisplays = ({displays}) => {
   return (
     <Card sx={{ width: '100%' }}>
-      <CardHeader title="Останні передані показаники" />
-      {/* <Scrollbar sx={{ flexGrow: 1}}> */}
+      <CardHeader title="Останні показаники" />
         <Box sx={{ width: '100%' }}>
           <Table>
             <TableHead>
@@ -42,22 +38,19 @@ export const OverviewLatestOrders = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orders.map((order) => {
-                const createdAt = format(order.createdAt, 'dd/MM/yyyy');
+              {displays.map((order) => {
+                // const createdAt = format(order.createdDate, 'dd/MM/yyyy');
                 return (
                   <TableRow
                     hover
                     key={order.id}
                   >
                     <TableCell>
-                      {order.indx}
+                      {order.displayCount}
                     </TableCell>
-                    <TableCell>
-                      {order.used}
-                    </TableCell>
-                    <TableCell>
+                    {/* <TableCell>
                       {createdAt}
-                    </TableCell>
+                    </TableCell> */}
                     <TableCell>
                     </TableCell>
                   </TableRow>
@@ -66,7 +59,6 @@ export const OverviewLatestOrders = (props) => {
             </TableBody>
           </Table>
         </Box>
-      {/* </Scrollbar> */}
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
         <Button

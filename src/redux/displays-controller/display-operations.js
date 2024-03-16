@@ -14,7 +14,7 @@ export const getDisplays = createAsyncThunk(
 
     try {
         const res = await axios.get('display_count/getAllDisplayCounts');
-        console.log(res.data)
+        // console.log(res)
         return res.data;
     } catch (error) {
         return thunkApi.rejectWithValue;

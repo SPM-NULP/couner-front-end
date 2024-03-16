@@ -1,1 +1,1 @@
-export const selectDispalys = state => state.dispaly
+export const selectDispalys = state => state.display.display

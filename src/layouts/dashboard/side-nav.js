@@ -156,7 +156,12 @@ export const SideNav = (props) => {
             }}
           >
             {items.map((item) => {
-              const active = item.path 
+              let active = item.path 
+              if (active) {
+                active = true
+              } else {
+                active = false
+              }
               return (
                 <SideNavItem
                   active={active}

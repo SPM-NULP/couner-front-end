@@ -1,14 +1,20 @@
 import { Header } from '../components/Header/header';
 import { Hero } from '../components/Hero/hero';
 import { Footer } from '../components/Footer/footer';
-import {Features} from '../components/Features/features'
-// import { AboutUs } from "../components/AboutUs/aboutUs";
-import {FeaturesCards} from '../components/HowWeWork/howWeWork'
-
+import { Features } from '../components/Features/features'
+import { FeaturesCards } from '../components/HowWeWork/howWeWork'
+import { getUserData } from '../redux/user/user-operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import styles from "../components/style";
 
 export const MainPage = () => {
+  const dispatch = useDispatch()
   
+  useEffect(() => {
+    dispatch(getUserData());
+  }, [dispatch]);
+
   return (
     <div>
       <Header></Header>
@@ -18,7 +24,6 @@ export const MainPage = () => {
         </div>
       </div>
       <Features></Features>
-      {/* <AboutUs></AboutUs> */}
       <FeaturesCards></FeaturesCards>
       <Footer></Footer>
     </div>

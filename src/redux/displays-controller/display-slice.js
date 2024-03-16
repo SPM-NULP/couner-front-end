@@ -15,6 +15,7 @@ export const displaySlice = createSlice({
         builder
         .addCase(getDisplays.pending, state => state)
         .addCase(getDisplays.fulfilled, (state, action) => {
+            // console.log(action.payload)
             state.display = action.payload
             state.error = null;
         })
