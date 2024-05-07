@@ -1,9 +1,7 @@
 import {
   Box,
-  Button,
   Container,
   Stack,
-  SvgIcon,
   Typography,
   Card,
   Unstable_Grid2 as Grid,
@@ -11,22 +9,8 @@ import {
 import { CompanyCard } from '../../sections/companies/company-card';
 import {Error} from '../ErrorPage/error'
 
-// import {useEffect} from 'react'
-// import {useDispatch, useSelector} from 'react-redux'
-// import { getAll } from '../../redux/device-controller/device-operations'
 import {PlusIcon, ArrowLeftIcon} from '@heroicons/react/24/solid';
-// import {selectAllDevices} from '../../redux/device-controller/device-selectors'
 
-// const companies = [
-//   // {
-//   //   id: '2569ce0d517a7f06d3ea1f24',
-//   //   createdAt: '27/03/2019',
-//   //   description: 'The demo version of smart counter ',
-//   //   logo: '/assets/counter1.jpg',
-//   //   title: 'SPM smart sensor',
-//   //   downloads: '594'
-//   // }
-// ];
 
 const buttonsError = [
   {
@@ -63,18 +47,6 @@ export const Devices = ({devices}) => {
                 Пристрої
               </Typography>
             </Stack>
-            <div>
-              <Button
-                startIcon={(
-                  <SvgIcon fontSize="small">
-                    <PlusIcon />
-                  </SvgIcon>
-                )}
-                variant="contained"
-              >
-                Додати пристрій 
-              </Button>
-            </div>
           </Stack>
           {devices === undefined || devices.length === 0 ? 
             <Card>
