@@ -1,94 +1,58 @@
-import PropTypes from 'prop-types';
-import {ClockIcon, Battery100Icon} from '@heroicons/react/24/solid'
-import { Box, Card, CardContent, Divider, Stack, SvgIcon, Typography } from '@mui/material';
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getDisplaysByDeviceId } from '../../redux/displays-controller/display-operations'
 
-export const CompanyCard = (props) => {
-  const { company } = props;
+export const CompanyCard = ({device}) => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const handleSubmit = () => {
+    navigate(`/devices/:${device.serialNumber}`)
+    
+    dispatch(getDisplaysByDeviceId(device.serialNumber))
+  }
 
   return (
-    <Card
+    // eslint-disable-next-line
+    // <a href='' onClick={handleSubmit} >
+      <Card
+      onClick={handleSubmit}
       sx={{
         display: 'flex',
         flexDirection: 'column',
         height: '100%'
-      }}
-    >
+        }}
+      >
       <CardContent>
         <Box 
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-        }}
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+          }}
         >
-        <Typography
-          align="center"
-          gutterBottom
-          variant="h5"
-        >
-          {company.title}
-        </Typography>
-        <Typography
-          align="center"
-          variant="body1"
-        >
-          {company.description}
-        </Typography>
+          <img src="https://demofree.sirv.com/nope-not-here.jpg" alt='' width="100px" height="100px" />
+          <Stack ml={'20px'}>
+            <Typography
+              align="center"
+              gutterBottom
+              variant="h5"
+            >
+              {device.name}
+            </Typography>
+            {/* <Typography
+              align="center"
+              variant="body1"
+            >
+              Тип: {device.counterType}
+            </Typography> */}
+          </Stack>
         </Box>
-        
       </CardContent>
-      <Box sx={{ flexGrow: 1 }} />
-      <Divider />
-      <Stack
-        alignItems="center"
-        direction="row"
-        justifyContent="space-between"
-        spacing={2}
-        sx={{ p: 2 }}
-      >
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={1}
-        >
-          <SvgIcon
-            color="action"
-            fontSize="small"
-          >
-            <Battery100Icon />
-          </SvgIcon>
-          <Typography
-            color="text.secondary"
-            display="inline"
-            variant="body2"
-          >
-            Заряд батареї
-          </Typography>
-        </Stack>
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={1}
-        >
-          <SvgIcon
-            color="action"
-            fontSize="small"
-          >
-            <ClockIcon />
-          </SvgIcon>
-          <Typography
-            color="text.secondary"
-            display="inline"
-            variant="body2"
-          >
-            {company.downloads} Приблизний час роботи
-          </Typography>
-        </Stack>
-      </Stack>
-    </Card>
+        <Box sx={{ flexGrow: 1 }} />
+      </Card>
+    // </a>
+    
   );
 };
 
-CompanyCard.propTypes = {
-  company: PropTypes.object.isRequired
-};

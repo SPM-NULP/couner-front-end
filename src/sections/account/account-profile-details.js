@@ -102,7 +102,7 @@ export const AccountProfileDetails = () => {
                   name="Ім'я"
                   onChange={handleChange}
                   required
-                  value={values.firstName}
+                  defaultValue={values.firstName}
                 />
               </Grid>
               <Grid
@@ -115,7 +115,7 @@ export const AccountProfileDetails = () => {
                   name="Прізвище"
                   onChange={handleChange}
                   required
-                  value={values.lastName}
+                  defaultValue={values.lastName}
                 />
               </Grid>
               <Grid
@@ -128,7 +128,7 @@ export const AccountProfileDetails = () => {
                   name="користувацьке ім'я"
                   onChange={handleChange}
                   required
-                  value={values.username}
+                  defaultValue={values.username}
                 />
               </Grid>
               <Grid
@@ -141,7 +141,7 @@ export const AccountProfileDetails = () => {
                   name="email"
                   onChange={handleChange}
                   required
-                  value={values.email}
+                  defaultValue={values.email}
                 />
               </Grid>
               <Grid
@@ -154,7 +154,7 @@ export const AccountProfileDetails = () => {
                   name="phone"
                   onChange={handleChange}
                   type="number"
-                  value={values.phone}
+                  defaultValue={values.phone}
                 />
               </Grid>
               <Grid
@@ -167,7 +167,7 @@ export const AccountProfileDetails = () => {
                   name="країна"
                   onChange={handleChange}
                   required
-                  value={values.country}
+                  defaultValue={values.country}
                 />
               </Grid>
               <Grid
@@ -182,7 +182,7 @@ export const AccountProfileDetails = () => {
                   required
                   select
                   SelectProps={{ native: true }}
-                  value={values.state}
+                  defaultValue={values.state}
                 >
                   {states.map((option) => (
                     <option

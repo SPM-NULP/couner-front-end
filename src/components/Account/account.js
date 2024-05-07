@@ -37,9 +37,9 @@ export const Account = (email, username, phoneNumber) => {
                 lg={8}
               >
                 <AccountProfileDetails
-                email={email}
-                phoneNumber={phoneNumber}
-                username={username} 
+                  email={email}
+                  phoneNumber={phoneNumber}
+                  username={username} 
                 />
               </Grid>
             </Grid>

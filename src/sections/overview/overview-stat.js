@@ -13,6 +13,43 @@ import {
 } from '@mui/material';
 import { alpha, useTheme } from '@mui/material/styles';
 
+const measurement = [
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 1,
+    "measurement": 13
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 2,
+    "measurement": 21
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 3,
+    "measurement": 30
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 4,
+    "measurement": 39
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 5,
+    "measurement": 45
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 6,
+    "measurement": 54
+  },
+  {
+    "createdDate": "2024-04-14T07:06:38.071Z",
+    "id": 7,
+    "measurement": 59
+  }
+]
 
 const useChartOptions = () => {
   const theme = useTheme();

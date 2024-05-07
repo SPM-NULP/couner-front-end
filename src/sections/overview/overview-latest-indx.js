@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import ArrowRightIcon from '@heroicons/react/24/solid/ArrowRightIcon';
 import {
   Box,
@@ -14,15 +14,11 @@ import {
   TableHead,
   TableRow
 } from '@mui/material';
-// import { Scrollbar } from '../../components/scrollbar';
 
-export const OverviewLatestOrders = (props) => {
-  const { orders = []} = props;
-
+export const OverviewLatestDisplays = ({displays}) => {
   return (
     <Card sx={{ width: '100%' }}>
-      <CardHeader title="Останні передані показаники" />
-      {/* <Scrollbar sx={{ flexGrow: 1}}> */}
+      <CardHeader title="Останні показаники" />
         <Box sx={{ width: '100%' }}>
           <Table>
             <TableHead>
@@ -42,23 +38,26 @@ export const OverviewLatestOrders = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {orders.map((order) => {
-                const createdAt = format(order.createdAt, 'dd/MM/yyyy');
+              {displays.map((order) => {
+                const unixDate = Date.parse(order.createdDate);
+                const date = new Date(unixDate)
+                const createdDate = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear() + ' ' 
+                + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
                 return (
                   <TableRow
                     hover
                     key={order.id}
                   >
                     <TableCell>
-                      {order.indx}
+                      {order.measurement}
                     </TableCell>
                     <TableCell>
-                      {order.used}
                     </TableCell>
                     <TableCell>
-                      {createdAt}
+                      {createdDate}
                     </TableCell>
                     <TableCell>
+                      {order.isSubmitted ? <div><p>Подано</p></div> : <div><p>Не подано</p></div>}
                     </TableCell>
                   </TableRow>
                 );
@@ -66,7 +65,6 @@ export const OverviewLatestOrders = (props) => {
             </TableBody>
           </Table>
         </Box>
-      {/* </Scrollbar> */}
       <Divider />
       <CardActions sx={{ justifyContent: 'flex-end' }}>
         <Button

@@ -5,7 +5,7 @@ import { SideNav } from '../layouts/dashboard/side-nav';
 import { Overview } from '../components/Overview/overview'
 
 import { selectDispalys } from 'redux/displays-controller/display-selectors';
-import { getDisplays } from '../redux/displays-controller/display-operations';
+import { getDisplaysByDeviceId } from '../redux/displays-controller/display-operations';
 
 import './Overview.css'
 
@@ -13,7 +13,7 @@ export const OverviewPage = () => {
   const dispatch = useDispatch()
   const displays = useSelector(selectDispalys)
   useEffect(()=> {
-    dispatch(getDisplays())
+    // dispatch(getDisplaysByDeviceId())
   }, [dispatch])
 
     return (

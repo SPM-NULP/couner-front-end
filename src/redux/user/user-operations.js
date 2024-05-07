@@ -5,7 +5,7 @@ const setAuthToken = token => {
     axios.defaults.headers.common.Authorization = `${token}`;
 };
 
-axios.defaults.baseURL = 'http://localhost:8080/api/';
+axios.defaults.baseURL = 'https://counterdisplayserver-26598a91a1e5.herokuapp.com/api/';
 
 export const getUserData = createAsyncThunk(
     'user/getUser',

@@ -9,9 +9,7 @@ import {
 import { Scrollbar } from '../../../src/components/scrollbar';
 import { SideNavItem } from './side-nav-item';
 import { 
-  HomeIcon,
   ShoppingCartIcon,
-  ChartBarIcon,
   CogIcon,
   ComputerDesktopIcon,
   UserIcon
@@ -22,37 +20,9 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {  logoutUser } from '../../redux/auth/auth-operations';
 import {Logout} from '@mui/icons-material';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import {selectEmail, selectFirstName, selectLastName} from '../../redux/user/user-selectors'
 
 export const items = [
-  {
-    title: 'Головна',
-    path: '/',
-    icon: (
-      <SvgIcon fontSize="small">
-        <HomeIcon />
-      </SvgIcon>
-    )
-  },
-  {
-    title: 'Магазин',
-    path: '',
-    icon: (
-      <SvgIcon fontSize="small">
-        <ShoppingCartIcon />
-      </SvgIcon>
-    )
-  },
-  {
-    title: 'Огляд',
-    path: '/overview',
-    icon: (
-      <SvgIcon fontSize="small">
-        <ChartBarIcon />
-      </SvgIcon>
-    )
-  },
   {
     title: 'Мої пристрої',
     path: '/devices',
@@ -77,6 +47,24 @@ export const items = [
     icon: (
       <SvgIcon fontSize="small">
         <CogIcon />
+      </SvgIcon>
+    )
+  },
+  {
+    title: 'Магазин',
+    path: '',
+    icon: (
+      <SvgIcon fontSize="small">
+        <ShoppingCartIcon />
+      </SvgIcon>
+    )
+  },
+  {
+    title: 'FAQ',
+    path: '',
+    icon: (
+      <SvgIcon fontSize="small">
+        <ShoppingCartIcon />
       </SvgIcon>
     )
   },
@@ -156,7 +144,12 @@ export const SideNav = (props) => {
             }}
           >
             {items.map((item) => {
-              const active = item.path 
+              let active = item.path 
+              if (active) {
+                active = true
+              } else {
+                active = false
+              }
               return (
                 <SideNavItem
                   active={active}
