@@ -5,8 +5,6 @@ import { SideNav } from '../layouts/dashboard/side-nav';
 import { Overview } from '../components/Overview/overview'
 
 import { selectDispalys } from 'redux/displays-controller/display-selectors';
-import { getDisplaysByDeviceId } from '../redux/displays-controller/display-operations';
-
 import './Overview.css'
 
 export const OverviewPage = () => {
