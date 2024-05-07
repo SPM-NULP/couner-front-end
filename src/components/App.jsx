@@ -25,8 +25,9 @@ export const App = () => {
           <Route path='/' element={<MainPage />}/>
           <Route path='/login' element={<PublicRoute component={<LoginPage />} />} />
           <Route path='/signup' element={<PublicRoute component={<SignUpPage />} />} />
-          <Route path='/overview' element={<PrivateRoute component={<OverviewPage />} />}/>
+          {/* <Route path='/overview' element={<PrivateRoute component={<OverviewPage />} />}/> */}
           <Route path='/devices' element={<PrivateRoute component={<DevicesPage />} />}/>
+          <Route path='/devices/:deviceId' element={<PrivateRoute component={<OverviewPage />} />} />
           <Route path='/account' element={<PrivateRoute component={<AccountPage />} />}/>
           <Route path='/settings' element={<PrivateRoute component={<SettingsPage />} />}/>
         </Routes>

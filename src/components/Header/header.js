@@ -20,8 +20,7 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+
 
 import {
   Logout,
@@ -49,7 +48,6 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {  logoutUser } from '../../redux/auth/auth-operations';
 import {selectEmail, selectFirstName, selectLastName} from '../../redux/user/user-selectors'
-// import {select} from '../../redux/user/user-selectors'
 
 const mockdata = [
   {
@@ -99,9 +97,6 @@ export const Header = () => {
     dispatch(logoutUser())
   }
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -148,18 +143,6 @@ export const Header = () => {
           {isLogined ?
           <Group>
           <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-          <Tooltip title="Профіль">
-            <IconButton
-              onClick={handleClick}
-              size="small"
-              sx={{ ml: 2 }}
-              aria-controls={open ? 'account-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-            >
-              <Avatar sx={{ width: 32, height: 32 }}>{name[0]}</Avatar>
-            </IconButton>
-          </Tooltip>
         </Box> 
           <Menu
           anchorEl={anchorEl}

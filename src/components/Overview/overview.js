@@ -1,6 +1,7 @@
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { OverviewLatestDisplays } from '../../sections/overview/overview-latest-indx';
 import { OverviewSales } from '../../sections/overview/overview-stat';
+import { DeviceInfo } from '../../sections/overview/device-info';
 
 export const Overview = ({displays}) => {
   return (
@@ -21,6 +22,7 @@ export const Overview = ({displays}) => {
             xs={12}
             lg={12}
           >
+            <DeviceInfo />
             <OverviewSales
               chartSeries={[
                 {
@@ -43,16 +45,6 @@ export const Overview = ({displays}) => {
           >
             <OverviewLatestDisplays
               displays={displays}
-              // orders={[
-              //   {
-              //     id: 'f69f88012978187a6c12897f',
-              //     indx: '64549',
-              //     amount: 30.5,
-              //     used:'34',
-              //     createdAt: 1555016400000,
-              //     status: 'Подано'
-              //   },
-              // ]}
             />
           </Grid>
         </Grid>

@@ -89,14 +89,14 @@ export const Devices = ({devices}) => {
               container
               spacing={3}
             >
-              {devices.map((company) => (
+              {devices.map((device) => (
                 <Grid
                   xs={12}
                   md={6}
                   lg={12}
-                  key={company.id}
+                  key={device.serialNumber}
                 >
-                  <CompanyCard company={company} />
+                  <CompanyCard device={device} />
                 </Grid>
               ))}
             </Grid>

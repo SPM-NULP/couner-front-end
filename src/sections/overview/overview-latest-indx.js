@@ -39,19 +39,25 @@ export const OverviewLatestDisplays = ({displays}) => {
             </TableHead>
             <TableBody>
               {displays.map((order) => {
-                // const createdAt = format(order.createdDate, 'dd/MM/yyyy');
+                const unixDate = Date.parse(order.createdDate);
+                const date = new Date(unixDate)
+                const createdDate = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear() + ' ' 
+                + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
                 return (
                   <TableRow
                     hover
                     key={order.id}
                   >
                     <TableCell>
-                      {order.displayCount}
+                      {order.measurement}
                     </TableCell>
-                    {/* <TableCell>
-                      {createdAt}
-                    </TableCell> */}
                     <TableCell>
+                    </TableCell>
+                    <TableCell>
+                      {createdDate}
+                    </TableCell>
+                    <TableCell>
+                      {order.isSubmitted ? <div><p>Подано</p></div> : <div><p>Не подано</p></div>}
                     </TableCell>
                   </TableRow>
                 );

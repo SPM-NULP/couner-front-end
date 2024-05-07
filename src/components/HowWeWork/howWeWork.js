@@ -71,8 +71,7 @@ export const FeaturesCards = () => {
           Принцип нашої роботи дуже простий. Його можна поділити на 5 етапів.
         </Text>
         <Box justifyContent="center">
-          <SimpleGrid 
-          className={classes.aboutlist} >
+          <SimpleGrid className={classes.aboutlist} >
             {features}
           </SimpleGrid>
         </Box>
