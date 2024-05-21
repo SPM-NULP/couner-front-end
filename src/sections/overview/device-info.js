@@ -1,52 +1,53 @@
-import { Group } from '@mantine/core';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Typography,
-  TextField
-} from '@mui/material';
+import { Card, CardContent, CardHeader, Divider } from '@mui/material';
+// import {
+//   Battery100Icon,
+//   Battery50Icon,
+//   Battery0Icon,
+// } from '@heroicons/react/24/solid';
+import { SearchInput } from 'components/Devices/input-device-name';
+import './owerviev.css';
 
-import { useState } from 'react';
-
-const val = 'ssdsds'
-const batterycapacity = 100
+const batterycapacity = 100;
 
 export const DeviceInfo = () => {
-  const [isButtonDisabled, setButtonDisabled] = useState(true);
-
-    const disableButton = () => {
-        setButtonDisabled(true);
-    };
-
-    const enableButton = () => {
-        setButtonDisabled(false);
-    };
+  // const battery = () => {
+  //   if (batterycapacity >= 50) {
+  //     return (
+  //       <SvgIcon fontSize="medium">
+  //         <Battery100Icon />
+  //       </SvgIcon>
+  //     );
+  //   }
+  //   if (batterycapacity <= 50) {
+  //     return (
+  //       <SvgIcon fontSize="medium">
+  //         <Battery50Icon />
+  //       </SvgIcon>
+  //     );
+  //   } else {
+  //     return (
+  //       <SvgIcon fontSize="medium">
+  //         <Battery0Icon />
+  //       </SvgIcon>
+  //     );
+  //   }
+  // };
   return (
-    <Card sx={{mb:'20px'}}>
-      <CardHeader
-        title="Інформація про пристрій"
-      />
-      <CardContent> 
-        <Typography>Нзава пристрою</Typography>
-        <Group sx={{ 
-          justifyContent: 'flex-end', 
-          flexWrap: 'nowrap'
-        }}>
-          <TextField
-            name="device"
-            onChange={enableButton}
-            required
-            type='text'
-            defaultValue={val}
-          /> 
-          <button id="button" type='submit' onClick={disableButton} disabled={isButtonDisabled}>Зберегти</button>
-          <Typography>Заряд батареї {batterycapacity}%</Typography> 
-        </Group>
+    <Card sx={{ mb: '20px' }}>
+      <CardHeader title="Інформація про пристрій" />
+      <CardContent>
+        <div className="flex-device-info">
+          <div>
+            <p className="input-title">Нзава пристрою</p>
+            <SearchInput></SearchInput>
+          </div>
+          <div className="flex-device-battery">
+            <p className="input-title">Заряд батареї: {batterycapacity}%</p>
+          </div>
+        </div>
         {/* value => зробити як вхідні дані (назва пристрою) */}
         {/* зробити як інпут тобто назву можна міняти */}
-        
+
         {/* зробити відображення поточного заряду пристрою за допомогою */}
       </CardContent>
       <Divider />
