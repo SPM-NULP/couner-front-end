@@ -1,26 +1,26 @@
 import PropTypes from 'prop-types';
-import {
-  Box,
-  Divider,
-  Drawer,
-  Stack,
-  SvgIcon,
-} from '@mui/material';
+import { Box, Divider, Drawer, Stack, SvgIcon } from '@mui/material';
 import { Scrollbar } from '../../../src/components/scrollbar';
 import { SideNavItem } from './side-nav-item';
-import { 
-  ShoppingCartIcon,
+import {
   CogIcon,
   ComputerDesktopIcon,
-  UserIcon
+  UserIcon,
+  ChatBubbleBottomCenterTextIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/solid';
-import {Avatar} from '@mui/material';
-import classes from './dashboard.module.css'
+import { Avatar } from '@mui/material';
+import classes from './dashboard.module.css';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {  logoutUser } from '../../redux/auth/auth-operations';
-import {Logout} from '@mui/icons-material';
-import {selectEmail, selectFirstName, selectLastName} from '../../redux/user/user-selectors'
+import { logoutUser } from '../../redux/auth/auth-operations';
+import { Logout } from '@mui/icons-material';
+import {
+  selectEmail,
+  selectFirstName,
+  selectLastName,
+} from '../../redux/user/user-selectors';
+import '../../normalize.css';
 
 export const items = [
   {
@@ -30,16 +30,34 @@ export const items = [
       <SvgIcon fontSize="small">
         <ComputerDesktopIcon />
       </SvgIcon>
-    )
+    ),
   },
   {
     title: 'Профіль',
-    path: '/account',
+    path: '', // /account
     icon: (
       <SvgIcon fontSize="small">
         <UserIcon />
       </SvgIcon>
-    )
+    ),
+  },
+  {
+    title: 'Повідомлення',
+    path: '',
+    icon: (
+      <SvgIcon fontSize="small">
+        <ChatBubbleBottomCenterTextIcon />
+      </SvgIcon>
+    ),
+  },
+  {
+    title: 'Часті питання',
+    path: '',
+    icon: (
+      <SvgIcon fontSize="small">
+        <QuestionMarkCircleIcon />
+      </SvgIcon>
+    ),
   },
   {
     title: 'Налаштування',
@@ -48,53 +66,36 @@ export const items = [
       <SvgIcon fontSize="small">
         <CogIcon />
       </SvgIcon>
-    )
-  },
-  {
-    title: 'Магазин',
-    path: '',
-    icon: (
-      <SvgIcon fontSize="small">
-        <ShoppingCartIcon />
-      </SvgIcon>
-    )
-  },
-  {
-    title: 'FAQ',
-    path: '',
-    icon: (
-      <SvgIcon fontSize="small">
-        <ShoppingCartIcon />
-      </SvgIcon>
-    )
+    ),
   },
 ];
 
-export const SideNav = (props) => {
-  const dispatch = useDispatch()
-  const email = useSelector(selectEmail)
-  const name = useSelector(selectFirstName)
-  const surname = useSelector(selectLastName)
+export const SideNav = () => {
+  const dispatch = useDispatch();
+  const email = useSelector(selectEmail);
+  const name = useSelector(selectFirstName);
+  const surname = useSelector(selectLastName);
   const logout = () => {
-    dispatch(logoutUser())
-  }
+    dispatch(logoutUser());
+  };
   const content = (
     <Scrollbar
       sx={{
+        background: '#f8f8f8',
         height: '100%',
         '& .simplebar-content': {
-          height: '100%'
+          height: '100%',
         },
         '& .simplebar-scrollbar:before': {
-          background: 'neutral.400'
-        }
+          background: 'neutral.400',
+        },
       }}
     >
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          height: '100%'
+          height: '100%',
         }}
       >
         <Box sx={{ p: 3 }}>
@@ -106,21 +107,25 @@ export const SideNav = (props) => {
               cursor: 'pointer',
               display: 'flex',
               mt: 2,
-              p: '12px'
+              p: '12px',
             }}
           >
-            <Avatar sx={{ width: 32, height: 32, marginRight: '15px' }} >{name[0]}</Avatar>
+            <Avatar sx={{ width: 32, height: 32, marginRight: '15px' }}>
+              {name[0]}
+            </Avatar>
             <ul className={classes.profile_data}>
               <li>
-                <p className={classes.profile_name}>{name} {surname}</p>
+                <p className={classes.profile_name}>
+                  {name} {surname}
+                </p>
               </li>
               <li>
                 <p className={classes.profile_email}>{email}</p>
               </li>
             </ul>
             <div className={classes.logouticon}>
-              <NavLink to='/' onClick={logout}>
-                  <Logout fontSize="small" />
+              <NavLink to="/" onClick={logout}>
+                <Logout fontSize="small" />
               </NavLink>
             </div>
           </Box>
@@ -131,7 +136,7 @@ export const SideNav = (props) => {
           sx={{
             flexGrow: 1,
             px: 2,
-            py: 3
+            py: 3,
           }}
         >
           <Stack
@@ -140,15 +145,15 @@ export const SideNav = (props) => {
             sx={{
               listStyle: 'none',
               p: 0,
-              m: 0
+              m: 0,
             }}
           >
-            {items.map((item) => {
-              let active = item.path 
+            {items.map(item => {
+              let active = item.path;
               if (active) {
-                active = true
+                active = true;
               } else {
-                active = false
+                active = false;
               }
               return (
                 <SideNavItem
@@ -169,27 +174,27 @@ export const SideNav = (props) => {
     </Scrollbar>
   );
 
-    return (
-      <Drawer
-        anchor="left"
-        open
-        PaperProps={{
-          sx: {
-            backgroundColor: 'neutral.800',
-            width: 280,
-            height: "100%",
-            overflowX: 'hidden',
-            overflowY: 'hidden',
-          }
-        }}
-        variant="permanent"
-      >
-        {content}
-      </Drawer>
-    );
-}
+  return (
+    <Drawer
+      anchor="left"
+      open
+      PaperProps={{
+        sx: {
+          backgroundColor: 'neutral.800',
+          width: 280,
+          height: '100%',
+          overflowX: 'hidden',
+          overflowY: 'hidden',
+        },
+      }}
+      variant="permanent"
+    >
+      {content}
+    </Drawer>
+  );
+};
 
 SideNav.propTypes = {
   onClose: PropTypes.func,
-  open: PropTypes.bool
+  open: PropTypes.bool,
 };
